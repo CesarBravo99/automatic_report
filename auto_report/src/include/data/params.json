@@ -1,0 +1,114 @@
+{
+    "template": {
+        "packages": [
+            ["usegeometry", "typearea"],
+            ["letterpaper,top=0cm, left=0cm, bottom=0cm, right=-4cm, margin=0cm", "geometry"],
+            ["amsmath"],
+            ["amssymb"],
+            ["graphicx"],
+            ["color"],
+            ["fancyhdr"],
+            ["multicol"],
+            ["wrapfig"],
+            ["tcolorbox"],
+            ["xcolor"],
+            ["enumerate"],
+            ["adjustbox"],
+            ["changepage"],
+            ["caption"],
+            ["fourier-orns"],
+            ["pages=some,scale=1,angle=0,opacity=1", "background"],
+            ["pdfrender"],
+            ["usestackEOL", "stackengine"],
+            ["tikz", "ocgx2"]
+        ]
+    },
+    "seawolf":{
+        "background": {
+            "w": 550,
+            "h": 200,
+            "x": 30,
+            "y": 90
+        },
+        "lateral_0": {
+            "w": 550,
+            "h": 100,
+            "x": 30,
+            "y": 370
+        },
+        "lateral_1": {
+            "w": 550,
+            "h": 100,
+            "x": 30,
+            "y": 490
+        },
+        "head_0": {
+            "w": 250,
+            "h": 130,
+            "x": 685,
+            "y": 80
+        },
+        "head_1": {
+            "w": 250,
+            "h": 130,
+            "x": 685,
+            "y": 250
+        },
+        "separator": {
+            "w": 250,
+            "h": 130,
+            "x": 685,
+            "y": 460
+        },
+        "titles": {
+            "background": [305, 30],
+            "lateral": [305, 320],
+            "head": [810, 30],
+            "separator": [810,410]
+        }
+    },
+    "fishbowl": {
+        "background": {
+            "w": 350,
+            "h": 350,
+            "x": 600,
+            "y": 100
+        },
+        "frontal": {
+            "w": 250,
+            "h": 150,
+            "x": 10,
+            "y": 100
+        },
+        "distal": {
+            "w": 250,
+            "h": 150,
+            "x": 300,
+            "y": 100
+        },
+        "canal": {
+            "w": 250,
+            "h": 150,
+            "x": 10,
+            "y": 300
+        },
+        "costa": {
+            "w": 250,
+            "h": 150,
+            "x": 300,
+            "y": 300
+        },
+        "titles":{
+            "title": [485, 0]
+        }
+    },
+    "tensors": {
+        "system": {
+            "w": 560,
+            "h": 100,
+            "x": 10,
+            "y": 10
+        }
+    }
+}
+
