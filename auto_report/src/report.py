@@ -35,8 +35,8 @@ class Latex(ABC):
         with open(tex_file_dir, 'w', encoding='utf-8') as tex_file:
             tex_file.write(self.latex)
         
-        os.system(f'pdflatex -output-directory {self.imported_data_dir} -jobname={output_filename} {tex_file_dir}')
-        os.system(f'pdflatex -output-directory {self.imported_data_dir} -jobname={output_filename} {tex_file_dir}')
+        os.system(f'pdflatex -output-directory {self.imported_data_dir} -jobname={output_filename} {tex_file_dir} > /dev/null 2>&1')
+        os.system(f'pdflatex -output-directory {self.imported_data_dir} -jobname={output_filename} {tex_file_dir} > /dev/null 2>&1')
         os.rename(f'{self.imported_data_dir}{output_filename}.pdf', f'{self.exported_data_dir}{output_filename}.pdf')
 
 

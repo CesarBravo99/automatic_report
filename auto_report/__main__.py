@@ -48,6 +48,7 @@ def generate(root:str, imported_data_dir:str, exported_data_dir:str, pdf_config:
     if load_settings and load_images and load_centers and load_params and load_style:
         print('All data is loaded!')
         report = Report(settings, images, center, params, style, imported_data_dir, exported_data_dir, pdf_config, hash)
+        print('Generating PDF...')
         report.process()
 
 
