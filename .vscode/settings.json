@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "auto report"
+        "auto report",
+        "global"
     ]
 }
