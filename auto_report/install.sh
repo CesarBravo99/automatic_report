@@ -17,4 +17,4 @@ mkdir -p /root/.TinyTeX/texmf-local/tex/latex/local \
     && wget -O /root/.TinyTeX/texmf-local/tex/latex/local/pdfbase.sty "https://mirrors.ctan.org/macros/latex/contrib/media9/pdfbase.sty" \
     && mktexlsr
 
-chmod +x $BASE_PATH/make_report.sh
+chmod +x $BASE_PATH/install.sh
