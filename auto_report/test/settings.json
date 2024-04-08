@@ -1,19 +1,18 @@
 {
     "fecha": "2023-09-05",
-    "centro": "CATALINA",
+    "centro": "Catalina",
     "nombre": "Matus Moedinger Jos\u00e9",
     "fono_piloto": "997323747",
     "mail_piloto": "jmatus@tri-chile.cl",
-    "cliente": "AQUACHILE",
+    "cliente": "AquaChile",
     "equipo": "DTG3",
-    "area": "CISNES",
+    "area": "Cisnes",
     "entrada": "07:01",
     "salida": "20:10",
     "team": "ANT04",
-    "jefe_team": "CRISTIAN MANSILLA",
+    "jefe_team": "Cristian Mansilla",
     "encargado_centro": "Juan Rodriguez",
     "estado_puerto": "Abierto",
     "ataque": "No",
-    "rut": "19423252-7",
-    "complete": false
+    "rut": "19423252-7"
 }

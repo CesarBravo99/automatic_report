@@ -1,8 +1,8 @@
 import os
-from src.include.utils import make_rectangle, make_labels, make_tensor_labels, translate
+from src.resources.include.utils import make_rectangle, make_labels, make_tensor_labels, translate
 
 
-class Tensor():
+class TensorLobera():
     ''' Class for creating the tensor system in the reports for Tri-Chile
     
     Args:

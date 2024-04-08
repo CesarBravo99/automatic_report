@@ -1,5 +1,5 @@
 import os
-from src.include.utils import make_rectangle, make_labels, translate, add_pontoon, add_cardinals
+from src.resources.include.utils import make_rectangle, make_labels, translate, add_pontoon, add_cardinals
 
 
 class Lobera():

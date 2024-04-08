@@ -104,7 +104,7 @@ class Template:
         \fancyhead[L]{
             \vspace{-1cm}
             \begin{picture}(0,0) \put''' + self.style['template']['logo_position'] + r'''{
-                \includegraphics[width=''' + self.style['template']['logo_width'] + r''']{''' + self.style['logo_user'] + r'''}
+                \includegraphics[width=''' + self.style['template']['logo_width'] + r''']{''' + self.style['trichile_logo'] + r'''}
             } 
             \end{picture}
         }
@@ -169,17 +169,15 @@ class Template:
 
     def stamps(self) -> str:
         latex = r'''
-            \vspace{''' + self.style['cover_page']['vspace_logo_client'] + r'''}
-            \begin{figure}[h!]
-            \hspace{''' + self.style['cover_page']['hspace_logo_client'] + r'''}
-            \includegraphics[width=''' + self.style['cover_page']['width_logo_client'] + r''']{''' + self.style['logo_client'] + r'''}
-            \end{figure}
-            '''
-        latex += r'''
+        \vspace{''' + self.style['cover_page']['vspace_logo_client'] + r'''}
+        \begin{figure}[h!]
+        \hspace{''' + self.style['cover_page']['hspace_logo_client'] + r'''}
+        \includegraphics[width=''' + self.style['cover_page']['width_logo_client'] + r''']{''' + self.style['client_cover'] + r'''}
+        \end{figure}
         \vspace{''' + self.style['cover_page']['vspace_logo_cover'] + r'''} 
         \begin{figure}[h!]
         \centering
-        \includegraphics[width=''' + self.style['cover_page']['width_logo_cover'] + r''']{''' + self.style['logo_cover'] + r'''}\\ 
+        \includegraphics[width=''' + self.style['cover_page']['width_logo_cover'] + r''']{''' + self.style['trichile_cover'] + r'''}\\ 
         \begin{Huge}
         \textcolor{white}{\textbf{\textit{Informe Diario \\ Inspección Submarina}}}
         \end{Huge}	  
