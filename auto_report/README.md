@@ -38,10 +38,5 @@ To generate a report, execute the following command:
 
 ```bash	
 auto_report/make_report.sh $ID $DATA_INPUT_DIR $PDF_CONFIG 
-auto_report/make_report.sh tri-chile ./test/ a
-```
-or
-```bash	
-./auto_report/exec.sh trichile $DATA_INPUT_DIR $DOCKER_BOOLEAN
-auto_report/exec.sh tri-chile auto_report/tests/docker-integration/compile false
+auto_report/make_report.sh tri-chile auto_report/test/ a
 ```
