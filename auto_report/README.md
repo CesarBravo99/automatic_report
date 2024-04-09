@@ -14,13 +14,8 @@ Proper data organization is crucial for running the Auto-report software. Ensure
 
 ```plaintext
 data_folder
-├── images
-│   ├── img_1.png
-│   ├── ...
-│   ├── img_n.png
-├── images.json
+├── zip_easylabel
 └── settings.json
-└── style.json
 ```
 
 - `images`: Store all pre-processed images from EasyLabel.
