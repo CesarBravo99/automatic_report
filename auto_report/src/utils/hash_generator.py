@@ -1,7 +1,7 @@
 import time
 import hashlib
 import random
-from argparse import ArgumentParser
+# from argparse import ArgumentParser
 
 
 def hash_generator() -> str:
@@ -16,10 +16,10 @@ def hash_generator() -> str:
 
 if __name__=='__main__':
 
-    parser = ArgumentParser()
-    parser.add_argument("--id", type=str, help="Client name")
-    args = parser.parse_args()
+    # parser = ArgumentParser()
+    # parser.add_argument("--id", type=str, help="Client name")
+    # args = parser.parse_args()
 
-    user_id = args.id
-    print(hash_generator(user_id))
+    # user_id = args.id
+    print(hash_generator())
     
