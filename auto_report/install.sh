@@ -6,7 +6,7 @@ sudo apt update
 sudo apt-get install texlive-latex-base -y
 sudo apt-get install texlive-latex-recommended -y
 sudo apt-get install texlive-fonts-recommended -y
-sudo apt-get install texlive-science -y
+sudo apt-get install texlive-fonts-extra -y
 sudo apt-get install texlive-latex-extra -y
 sudo apt-get install texlive-bibtex-recommended -y
 sudo apt-get install texlive-lang-english -y
