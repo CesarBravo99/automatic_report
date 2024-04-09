@@ -1,14 +1,13 @@
 #!/bin/bash
 
-ID=$1
-DATA_INPUT_DIR=$2
-PDF_CONFIG=$3
+DATA_INPUT_DIR=$1
+PDF_CONFIG=$2
 # PDF_EXPORT_DIR=$4
 
 BASE_PATH="$(realpath --relative-to="$(pwd)" "$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )")"
 MAIN_PY_PATH="$BASE_PATH/__main__.py"
 HASH_GENERATOR_PATH="$BASE_PATH/src/utils/hash_generator.py"
-HASH=$(python3 "$HASH_GENERATOR_PATH" "--id=$ID")
+HASH=$(python3 "$HASH_GENERATOR_PATH")
 DATA_IMPORT_DIR="$BASE_PATH/content/import/$HASH/"
 PDF_EXPORT_DIR="$BASE_PATH/content/export/$HASH/"
 

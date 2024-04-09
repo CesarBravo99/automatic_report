@@ -4,15 +4,15 @@ import random
 from argparse import ArgumentParser
 
 
-def hash_generator(user_id:str) -> str:
+def hash_generator() -> str:
     '''Generate a hash for a given string
 
     Args:
         user_id (str): name of the user
     '''
-    hash_user = hashlib.shake_256(user_id.encode('UTF-8')).hexdigest(5)
+    # hash_user = hashlib.shake_256(user_id.encode('UTF-8')).hexdigest(5)
     hash_temp = hashlib.shake_256(str(time.time() + random.random()).encode('UTF-8')).hexdigest(25)
-    return hash_user + hash_temp
+    return hash_temp
 
 if __name__=='__main__':
 
