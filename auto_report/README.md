@@ -32,13 +32,13 @@ For being more precise. The image folder and the images.json are provided from E
 If you take the GitHub repo as the root, to generate a report you only need to execute the following terminal command:
 
 ```bash	
-auto_report/make_report.sh $ID $DATA_INPUT_DIR $PDF_CONFIG 
+auto_report/make_report.sh $DATA_INPUT_DIR $PDF_CONFIG 
 ```
 
 For example
 
 ```bash	
-auto_report/make_report.sh tri-chile auto_report/test/ a
+auto_report/make_report.sh auto_report/test/ a
 ```
 
 ### Installing
