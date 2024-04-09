@@ -1,0 +1,771 @@
+:root {
+  --primary-color: #007bff; /* Primary color for the theme */
+  --sidebar-bg: #f8f9fa; /* Background color for sidebars */
+  --sidebar-border: #ddd; /* Border color for sidebars */
+  --footer-bg: var(--primary-color); /* Footer background color */
+  --footer-text: #fff; /* Footer text color */
+  --loberas-spacing: 26px;
+  --image-container-padding: 10px;
+  --spacing-small: 5px;
+  --spacing-medium: 20px;
+  --image-size: 50px; /* Adjust the size of the images */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Styling for Navbar Brand (Logo) */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5em; /* Adjust font size as needed */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Text shadow for depth */
+  font-family: "Open Sans", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img {
+  height: 40px; /* Adjust the size of the image */
+  margin-right: 10px; /* Space between image and text */
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  text-decoration: none;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Custom Styling for Sidebars */
+.left-sidebar,
+.right-sidebar {
+  background-color: var(--sidebar-bg);
+  border: 1px solid var(--sidebar-border);
+  padding: 15px;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: none;
+}
+
+/* Custom Styling for Footer */
+.footer {
+  margin-top: auto;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 10px 0;
+}
+
+/* Additional Custom Styles */
+.card {
+  border: 1px solid var(--sidebar-border);
+}
+
+/* Ensuring Main Content does not overflow */
+.container-fluid {
+  padding-bottom: 0px; /* Space for the footer */
+  overflow: auto;
+}
+
+/* Custom Styling for File Upload in Sidebar */
+.file-upload {
+  margin-bottom: 15px;
+}
+
+.file-upload input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+
+.file-upload label {
+  display: block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload label:hover {
+  background-color: #0056b3; /* Darken the primary color slightly on hover */
+}
+
+/* Upload button */
+.file-upload button {
+  background-color: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.file-upload button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link {
+  color: var(--footer-text); /* White text */
+  text-decoration: none;
+  padding: 2px 4px; /* Padding for better visual */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px; /* Optional: Rounded corners for aesthetic */
+  margin: 0px 0px; /* margin: top/bottom left/right */
+  font-weight: bold;
+}
+
+.footer-link:hover {
+  background-color: var(--footer-text); /* White background on hover */
+  color: var(--primary-color); /* Primary color text on hover */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer span {
+  margin: 0;
+  padding: 0;
+}
+
+/* Enhanced Style for Tabs */
+.tab {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--sidebar-bg); /* Use the sidebar background color */
+  border-radius: 5px; /* Rounded corners for the tab bar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* subtle shadow for depth */
+}
+
+.tab button {
+  background-color: inherit;
+  color: var(--primary-color); /* Primary color for text */
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px; /* Rounded corners for buttons */
+  font-weight: bold;
+}
+
+.tab button:hover {
+  background-color: var(--primary-color); /* Primary color on hover */
+  color: white; /* White text on hover */
+}
+
+.tab button.active {
+  background-color: var(--primary-color); /* Primary color for active tab */
+  color: white; /* White text for active tab */
+  box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2) inset; /* Inner shadow for depth */
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+  border: 1px solid var(--sidebar-border);
+  border-top: none;
+  border-radius: 0 0 5px 5px; /* Rounded corners for the bottom of tab content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for tab content */
+}
+
+.centered-tensores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-tensores {
+  width: 100% !important;
+  max-height: 600px !important;
+  object-fit: fill;
+}
+
+.grid-container-loberas {
+  display: grid;
+  grid-template-columns: calc(60% - var(--loberas-spacing) / 2) calc(
+      40% - var(--loberas-spacing) / 2
+    ); /* Use the variable */
+  grid-gap: var(--loberas-spacing); /* Use the variable */
+  margin: 0px;
+  padding: 0px;
+  max-height: 65vh !important;
+  overflow: auto;
+  /* object-fit: cover; */
+}
+
+.grid-container-loberas img {
+  margin: 0px;
+  padding: 0px;
+}
+
+.img-loberas-fondo,
+.img-loberas-lateral {
+  width: 100% !important;
+  max-height: calc(
+    30vh - var(--loberas-spacing) - 2 * var(--image-container-padding)
+  ) !important; /* Use the variable */
+  object-fit: fill;
+}
+
+.img-loberas-cabeceras {
+  width: 100% !important;
+  max-height: calc(
+    40vh - var(--loberas-spacing) - 2 * var(--image-container-padding)
+  ) !important; /* Use the variable */
+  object-fit: fill;
+}
+
+.img-loberas-mamparos {
+  width: 100% !important;
+  max-height: calc(
+    20vh - (2 * var(--loberas-spacing)) - 2 * var(--image-container-padding)
+  ) !important; /* Use the variable */
+  object-fit: fill;
+}
+
+.loberas-legend {
+  width: 100%;
+  height: var(--loberas-spacing);
+  line-height: var(--loberas-spacing);
+  background-color: #f0f0f0; /* Subtle background color */
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold; /* Make the text bold for better readability */
+  color: var(--primary-color); /* Use primary color for text */
+  margin: 0;
+  padding: 2px 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-bottom: 2px solid var(--sidebar-border); /* Add a bottom border */
+}
+
+.dropdown-wrapper {
+  text-align: center; /* Ensures content is centered */
+  padding: 0;
+  margin: 0;
+  /* padding-top: 3px; */
+}
+
+.mamparos-dropdown {
+  width: 60%;
+  height: calc(var(--loberas-spacing) - 1px); /* Use the variable */
+  padding: 2px 0px;
+  margin: 0 auto; /* Center the dropdown horizontally */
+  margin-top: 4px;
+  font-size: 12px;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  color: var(--footer-text);
+  cursor: pointer;
+  text-align: center;
+  outline: none; /* Remove default focus outline */
+  -webkit-appearance: none; /* Remove default styling on iOS */
+  background-image: url("/static/easy-label/images/dropdown-down.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Position for the dropdown arrow */
+  background-size: 13px; /* Size of the dropdown arrow */
+}
+
+/* Enhance focus state for accessibility */
+.mamparos-dropdown:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* .mamparos-dropdown:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+} */
+
+.image-container {
+  padding: var(--image-container-padding);
+  margin: 0;
+  /* background-color: pink; */
+  background-color: transparent;
+}
+
+/* Grid container for "peceras" */
+.grid-container-peceras {
+  display: grid;
+  grid-template-columns:
+    calc(25% - var(--loberas-spacing)) calc(25% - var(--loberas-spacing))
+    calc(50% - var(--loberas-spacing)); /* Use the variable */
+  grid-gap: var(--loberas-spacing); /* Use the variable */
+  margin: 0px;
+  padding: 0px;
+  max-height: 61vh !important;
+  overflow: auto;
+  /* object-fit: cover; */
+}
+
+.grid-container-peceras img {
+  margin: 0px;
+  padding: 0px;
+}
+
+.img-peceras-lateral-1,
+.img-peceras-lateral-2,
+.img-peceras-lateral-3,
+.img-peceras-lateral-4 {
+  width: 100% !important;
+  max-height: calc(
+    28vh - var(--loberas-spacing) - 2 * var(--image-container-padding)
+  ) !important; /* Use the variable */
+  object-fit: fill;
+}
+
+.img-peceras-topview {
+  width: 100% !important;
+  max-height: calc(
+    56vh + var(--loberas-spacing) - 2 * var(--image-container-padding)
+  ) !important; /* Use the variable */
+  object-fit: fill;
+}
+
+.peceras-dropdown {
+  width: 40%;
+  height: 3.4vh;
+  padding: 0;
+  margin: 0 auto; /* Center the dropdown horizontally */
+  margin-bottom: var(--image-container-padding);
+  font-size: 2vh;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  color: var(--footer-text);
+  cursor: pointer;
+  text-align: center;
+  outline: none; /* Remove default focus outline */
+  -webkit-appearance: none; /* Remove default styling on iOS */
+  background-image: url("/static/easy-label/images/dropdown-down.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Position for the dropdown arrow */
+  background-size: 2vh; /* Size of the dropdown arrow */
+}
+
+/* Enhance focus state for accessibility */
+.peceras-dropdown:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Context Menu */
+.context-menu {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  width: 180px; /* Reduced width for a more compact menu */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Slightly transparent background */
+  border: 1px solid var(--sidebar-border);
+  border-radius: 6px; /* Slightly rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+.context-menu-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.context-menu-items li {
+  padding: 8px 15px; /* Reduced padding for compactness */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px; /* Smaller font size */
+}
+
+.context-menu-items li span[role="img"] {
+  margin-right: 8px;
+}
+
+.context-menu-items li:hover {
+  background-color: var(--primary-color);
+  color: var(--footer-text);
+}
+
+.context-menu-separator {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 4px 0;
+  pointer-events: none; /* Disable hover and click events on the separator */
+}
+
+/* Two-Column Layout for Images */
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Adjusted for equal spacing on all sides */
+  margin-bottom: var(--spacing-medium); /* Space below each row */
+}
+
+.image-item {
+  flex-basis: calc(
+    33% - var(--spacing-small)
+  ); /* Adjust space between images */
+  cursor: pointer; /* Indicates the image is clickable */
+  position: relative; /* Needed for aspect ratio and positioning */
+  padding-top: var(--image-size); /* Adjust as per image size */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Image Thumbnail Styles */
+.img-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-height: 50px;
+  object-fit: fill; /* Ensures image covers the square area */
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+  border: 2px solid transparent; /* Default border */
+}
+
+/* Hover Effect for Thumbnails */
+.image-item:hover .img-thumbnail {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+  border-color: rgba(0, 123, 255, 0.5); /* Slightly lighter border on hover */
+}
+
+/* Selected Image Effect */
+.image-item.selected .img-thumbnail {
+  border: 2px solid var(--primary-color); /* Highlight with primary color */
+}
+
+/* Hover on Selected Image */
+.image-item.selected:hover .img-thumbnail {
+  border: 2px solid var(--primary-color); /* Keep primary color border on hover */
+}
+
+.image-list-title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: var(--spacing-medium);
+}
+
+.icon-class {
+  font-size: 24px; /* Adjust size as needed */
+  cursor: pointer;
+  user-select: none; /* Prevents text selection */
+  z-index: 1000;
+}
+
+/* Right Sidebar */
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-medium);
+}
+
+.selected-image-container {
+  width: 100%;
+  margin-bottom: var(--spacing-medium);
+}
+
+.selected-image-container img {
+  width: 100%; /* Full width of the sidebar */
+  max-height: 300px; /* Adjust as needed */
+  object-fit: contain; /* Keep the aspect ratio of the image */
+  border: 2px solid var(--primary-color); /* Border color */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.comment-section {
+  width: 100%;
+}
+
+#comment-box {
+  width: 100%;
+  height: 100px; /* Adjust as needed */
+  /* margin-bottom: var(--spacing-small); */
+  padding: 5px;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 4px;
+}
+
+#save-comment-button {
+  width: 100%;
+  padding: var(--spacing-small);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#save-comment-button:hover {
+  background-color: darken(
+    var(--primary-color),
+    10%
+  ); /* Slightly darker on hover */
+}
+
+.thumbnail-icon {
+  position: absolute;
+  font-size: 20px; /* Size of the icon */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* Icon color */
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+  border: 2px solid white; /* White border */
+  border-radius: 50%; /* Round corners */
+  padding: 4px; /* Padding inside the icon */
+  text-shadow: 0 0 3px #000; /* Shadow for the text */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for the icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px; /* Width of the icon */
+  height: 30px; /* Height of the icon */
+  line-height: 1; /* Adjust line height to center the text vertically */
+}
+
+/* Add the following CSS to prevent text selection */
+
+/* Disable text selection */
+.no-select {
+  user-select: none;
+}
+
+/* Apply the class to the elements you want to prevent selection */
+.image-item img,
+.right-sidebar-thumbnail {
+  cursor: pointer; /* Add a pointer cursor for clickable elements */
+}
+
+/* Add the class to the elements you want to prevent selection */
+.no-select .image-item img,
+.no-select .right-sidebar-thumbnail {
+  user-select: none; /* Prevent text selection on clickable elements */
+}
+
+.centers-dropdown {
+  width: 60%;
+  height: 30px; /* Adjust as needed */
+  padding: 2px 0px; /* padding: <top> <right> <bottom> <left> */
+  font-size: 12px;
+  margin-right: 5px;
+  margin-left: auto;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  color: var(--footer-text);
+  cursor: pointer;
+  text-align: center;
+  outline: none; /* Remove default focus outline */
+  -webkit-appearance: none; /* Remove default styling on iOS */
+  background-image: url("/static/easy-label/images/dropdown-down.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Position for the dropdown arrow */
+  background-size: 20px; /* Size of the dropdown arrow */
+}
+
+.dropdown-wrapper-centers {
+  position: absolute;
+  text-align: center; /* Ensures content is centered */
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  height: 44px;
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-top: 3px; */
+}
+
+.modules-dropdown {
+  width: 35%;
+  height: 25px; /* Adjust as needed */
+  padding: 2px 0px; /* padding: <top> <right> <bottom> <left> */
+  font-size: 12px;
+  margin-right: 5px;
+  margin-left: 0;
+  /* border: 1px solid var(--sidebar-border); */
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* background-color: var(--primary-color); */
+  background-color: black;
+  /* color: var(--footer-text); */
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  outline: none; /* Remove default focus outline */
+  -webkit-appearance: none; /* Remove default styling on iOS */
+  background-image: url("/static/easy-label/images/dropdown-down.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Position for the dropdown arrow */
+  background-size: 15px; /* Size of the dropdown arrow */
+}
+
+.modules-dropdown option {
+  background-color: black;
+  color: white;
+}
+
+.modules-dropdown option:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* Custom Styling for Download Button */
+.download-section {
+  text-align: center; /* Center align the button */
+}
+
+#download-button {
+  padding: 10px 15px; /* Padding for button size */
+  background-color: var(--primary-color); /* Use the primary color */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1px; /* Spacing between letters */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+#download-button:hover {
+  background-color: green;
+  color: white; /* Keep text color consistent on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Enhanced shadow on hover */
+}
+
+#download-button:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus state for accessibility */
+}
+
+.sidebar-divider {
+  margin: var(--spacing-medium) 0px;
+  border-bottom: 2px solid var(--sidebar-border);
+}
+
+/* Tutorial Page Styling */
+.tutorial-container {
+  margin: var(--spacing-medium);
+  padding: var(--spacing-medium);
+  border: 1px solid var(--sidebar-border);
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-heading {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+}
+
+.tutorial-subheading {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-top: var(--spacing-medium);
+  margin-bottom: var(--spacing-small);
+}
+
+.tutorial-steps {
+  list-style-type: decimal;
+  padding-left: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
+}
+
+.tutorial-section {
+  margin-top: var(--spacing-medium);
+}
+
+.tutorial-warning {
+  background-color: #ffcccb; /* Light red for caution */
+  padding: var(--spacing-small);
+  border-left: 4px solid #ff4444; /* Darker red border on the left */
+  margin-top: var(--spacing-medium);
+  font-style: italic;
+}
+
+.tutorial-intro {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-medium);
+}
+
+/* Custom List Styling for Tutorial Steps */
+.tutorial-steps li {
+  margin-bottom: var(--spacing-small);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Index Page Styling */
+.index-container {
+  margin: var(--spacing-medium);
+  padding: var(--spacing-medium);
+  border: 1px solid var(--sidebar-border);
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.index-heading {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+}
+
+.index-subheading {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-top: var(--spacing-medium);
+  margin-bottom: var(--spacing-small);
+}
+
+.index-description,
+.index-section p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-medium);
+}
+
+.index-section {
+  margin-top: var(--spacing-medium);
+}

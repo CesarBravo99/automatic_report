@@ -3,6 +3,7 @@ __pycache__/
 uc.cl/
 export/
 import/
+upload/
 *.py[cod]
 *$py.class
 

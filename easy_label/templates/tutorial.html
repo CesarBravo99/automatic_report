@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}EasyLabel - Tutorial{% endblock %}
+
+{% block left_sidebar %}
+{% endblock %}
+
+{% block content %}
+  <div class="tutorial-container">
+    <h1 class="tutorial-heading">Tutorial</h1>
+    <p class="tutorial-intro">
+      Este es un tutorial para aprender a usar EasyLabel.
+    </p>
+
+    <section class="tutorial-section">
+      <h2 class="tutorial-subheading">¿Cómo utilizar el EasyLabel?</h2>
+      <ol class="tutorial-steps">
+        <li>Subir imágenes en página de inicio. Si las imágenes pasan todos los tests de calidad se pasará al EasyLabel. De lo contrario, se deberán subir las imágenes correctas.</li>
+        <li>En la página del EasyLabel deberá seleccionar el centro en el que se tomaron las imágenes.</li>
+        <li>Luego, deberá seleccionar en la barra lateral izquierda una imagen para etiquetar.</li>
+        <li>Elija Lobero | Tensor | Pecera según corresponda.</li>
+        <li>En Lobero, seleccionar mamparo (si es necesario) antes de agregar anotación (ej: L5 - L6).</li>
+        <li>En Pecera, seleccionar pecera (si es necesario) antes de agregar anotación (ej: Pecera 105).</li>
+        <li>Haga click derecho en el punto exacto donde quiera agregar una anotación.</li>
+        <li>Seleccione su opción. Debería aparecer un ícono en el punto que eligió.</li>
+        <li>En la barra lateral derecha puede agregar un comentario a la anotación.</li>
+        <li>Debe repetir este proceso para todas las imágenes.</li>
+        <li>Al finalizar, descargue el .zip y súbalo al formulario en Tri-Data.</li>
+      </ol>
+    </section>
+
+    <section class="tutorial-section">
+      <h2 class="tutorial-subheading">¡Cuidado!</h2>
+      <p class="tutorial-warning">
+        Si cambia el centro a mitad del proceso, se borrarán los datos. Además, el orden SIEMPRE será primero seleccionar mamparo/pecera y luego añadir el ícono. Si invierte el orden, debe de añadir el ícono nuevamente. El comentario se puede añadir en cualquier momento.
+      </p>
+    </section>
+  </div>
+{% endblock %}
+
+{% block right_sidebar %}
+{% endblock %}

@@ -1,0 +1,20 @@
+<!-- templates/easy-label/right-sidebar.html -->
+{% load static %}
+<div class="selected-image-container">
+    <img id="selected-image" src="" alt="Selected Image" />
+</div>
+
+<div class="comment-section">
+    <textarea id="comment-box" placeholder="Agrega un comentario..."></textarea>
+    <!-- <button id="save-comment-button">Save Comment</button> -->
+</div>
+
+<hr class="sidebar-divider"/>
+
+<div class="download-section">
+    <button id="download-button">Descargar JSON</button>
+</div>
+
+<!-- Include the JavaScript file -->
+<script src="{% static 'js/imageComments.js' %}"></script>
+<script src="{% static 'js/downloadData.js' %}"></script>

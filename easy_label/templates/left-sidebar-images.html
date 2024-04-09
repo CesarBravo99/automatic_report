@@ -1,0 +1,26 @@
+<!-- templates/easy-label/left-sidebar-images.html -->
+{% load static %}
+
+<script src="{% static 'js/imageSelector.js' %}"></script>
+
+{% if images_dir %}
+<div class="image-list">
+  <h4 class="image-list-title">Selector de Imágenes</h4>
+  {% for image_file in image_files %}
+    {% if forloop.counter0|divisibleby:3 %}
+      <div class="image-row"> <!-- Start of a new row every 2 images -->
+    {% endif %}
+    
+    <div class="image-item">
+      <img src="{{ media_url }}{{ images_dir }}/images/{{ image_file }}" class="img-thumbnail" alt="{{ image_file }}">
+    </div>
+
+    {% if forloop.counter|divisibleby:3 or forloop.last %}
+      </div> <!-- End of the row -->
+    {% endif %}
+  {% endfor %}
+</div>
+<script>
+  var images_dir_int = "{{ images_dir }}";
+</script>
+{% endif %}
