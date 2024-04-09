@@ -1,5 +1,3 @@
-# ./easy_label/DarkDjango/EasyLabel/custom_views/upload_images.py
-
 from django.shortcuts import redirect
 from django.http import JsonResponse
 from django.contrib import messages
@@ -9,7 +7,7 @@ import random
 import shutil
 import os
 
-# from quality_check import QualityCheck
+from quality_check import QualityCheck
 
 ALLOWED_EXTENSIONS = {
     'png', 'jpg', 'jpeg', 'svg', 'webp'

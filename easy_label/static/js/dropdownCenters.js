@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateImages(centerImages, module) {
-    document.querySelector(".img-loberas-fondo").src = staticBaseUrl + "easy-label/centers/background/" + centerImages.filename + `_${module}.png`;
-    document.querySelector(".img-loberas-lateral").src = staticBaseUrl + "easy-label/centers/lateral/" + centerImages.filename + `_${module}.png`;
-    document.querySelector(".img-tensores").src = staticBaseUrl + "easy-label/centers/tensor/" + centerImages.filename + `_${module}.png`;
+    document.querySelector(".img-loberas-fondo").src = staticBaseUrl + "img/assets/background/" + centerImages.filename + `_${module}.png`;
+    document.querySelector(".img-loberas-lateral").src = staticBaseUrl + "img/assets/lateral/" + centerImages.filename + `_${module}.png`;
+    document.querySelector(".img-tensores").src = staticBaseUrl + "img/assets/tensor/" + centerImages.filename + `_${module}.png`;
 
     const xFlip = centerImages.x_flip[module] ? "1" : "0";
     const yFlip = centerImages.y_flip[module] ? "1" : "0";
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const doubled = "1"
     const cabecerasSuffix = xFlip + yFlip + doubled;
     // console.log("Cabeceras suffix:", cabecerasSuffix);
-    document.querySelector(".img-loberas-cabeceras").src = staticBaseUrl + "easy-label/centers/fixed/seawolf_head_" + cabecerasSuffix + ".png";
+    document.querySelector(".img-loberas-cabeceras").src = staticBaseUrl + "img/assets/fixed/seawolf_head_" + cabecerasSuffix + ".png";
   }
 
   function updateMamparosDropdown(centerImages, module) {

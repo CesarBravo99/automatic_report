@@ -17,7 +17,7 @@ def load_centers():
     
 def load_centers_json():
     path = os.path.join(
-        settings.STATICFILES_DIRS[0], 'easy-label', 'centers', 'centers.json'
+        settings.BASE_DIR, os.path.normpath('easy_label/data/centers.json')
     )
     with open(path, 'r', encoding='latin-1') as f:
         centers = json.load(f)

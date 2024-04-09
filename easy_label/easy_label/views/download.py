@@ -82,7 +82,10 @@ def clean_data(data):
         'Falta Tensión': 'lack_tension',
         'Sin Tensión': 'no_tension',
     }
-    with open(os.path.join(settings.STATICFILES_DIRS[0], 'easy-label', 'centers', 'weights.json'), 'r') as json_file:
+    weight_path = os.path.join(
+        settings.BASE_DIR, os.path.normpath('easy_label/data/weights.json')
+    )
+    with open(weight_path, 'r') as json_file:
         weights = json.load(json_file)
     image_comments = dict()
     for filename in data['imageComments'].keys():
