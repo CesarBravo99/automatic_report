@@ -40,3 +40,12 @@ For example
 ```bash	
 auto_report/make_report.sh tri-chile auto_report/test/ a
 ```
+
+### Installing
+
+For install the Auto Report software it is necessary to run the following bash script
+
+```bash	
+chmod +x auto_report/install.sh
+auto_report/install.sh
+```
