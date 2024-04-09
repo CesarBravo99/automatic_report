@@ -37,19 +37,20 @@ def get_centers_data(centers_json: dict):
 
 
 def easy_label(request, images_dir):
-    dir_path = os.path.join(settings.MEDIA_ROOT, str(images_dir))
-    if not os.path.exists(dir_path) and images_dir.isdigit():
+    media_path = os.path.join(settings.MEDIA_ROOT, str(images_dir))
+    if not os.path.exists(media_path) and images_dir.isdigit():
         return redirect('/')
-    image_files = os.listdir(os.path.join(dir_path, 'images'))
+    image_files = os.listdir(os.path.join(media_path, 'images'))
     centers_names, centers_data = load_centers()
-    # print(centers_data)
     peceras_options = [f'Pecera {i}' for i in range(101, 110)]
     context = dict(
         media_url=settings.MEDIA_URL,
         images_dir=images_dir,
+        media_path=media_path,
         image_files=image_files,
         centers_names=centers_names,
         centers_data=centers_data,
         peceras_options=peceras_options
     )
+    print( f"{media_path}/{image_files[0]}")
     return render(request, 'easy-label.html', context=context)

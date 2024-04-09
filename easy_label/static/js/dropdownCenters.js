@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateImages(centerImages, module) {
+    console.log(staticBaseUrl + "/img/assets/background/" + centerImages.filename + `_${module}.png`);
     document.querySelector(".img-loberas-fondo").src = staticBaseUrl + "img/assets/background/" + centerImages.filename + `_${module}.png`;
     document.querySelector(".img-loberas-lateral").src = staticBaseUrl + "img/assets/lateral/" + centerImages.filename + `_${module}.png`;
     document.querySelector(".img-tensores").src = staticBaseUrl + "img/assets/tensor/" + centerImages.filename + `_${module}.png`;

@@ -46,7 +46,8 @@ def upload_images(request):
             return redirect('home')
         else:
             request.session['folder_to_delete'] = save_path
-            return redirect(f'/{random_dir}')
+            print('EasyLabel on')
+            return redirect(f'/{random_dir}') # Easy-label
 
 
 def check_if_images(files):

@@ -1,4 +1,3 @@
-<!-- templates/easy-label/left-sidebar-images.html -->
 {% load static %}
 
 <script src="{% static 'js/imageSelector.js' %}"></script>
@@ -12,7 +11,7 @@
     {% endif %}
     
     <div class="image-item">
-      <img src="{{ media_root }}{{ images_dir }}/images/{{ image_file }}" class="img-thumbnail" alt="{{ image_file }}">
+      <img src="{{ media_path }}/images/{{ image_file }}" class="img-thumbnail" alt="{{ image_file }}" width="6%">
     </div>
 
     {% if forloop.counter|divisibleby:3 or forloop.last %}
