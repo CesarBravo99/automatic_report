@@ -40,10 +40,10 @@ auto_report/make_report.sh auto_report/test/input auto_report/test/output a
 The $PDF_CONFIG argument could be
 ```Types of Report PDF's
 ├── a: all
-└── s: separated
-└── b: bitacora
-└── l: lobera
-└── p: pecera
+├── s: separated
+├── b: bitacora
+├── l: lobera
+├── p: pecera
 └── t: tensores
 ```
 
