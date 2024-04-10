@@ -13,8 +13,13 @@ Below are the instructions for using the Auto-Report.
 Proper data organization is crucial for running the Auto-report software. Ensure your data folder adheres to the following structure:
 
 ```plaintext
-data_folder
-├── zip_easylabel
+input_data_folder
+├── easylabel.zip
+│   ├── images
+│   │   ├── image_1.png
+│   │   ├── ...
+│   │   ├── image_n.png
+│   └── images.json
 └── settings.json
 ```
 
