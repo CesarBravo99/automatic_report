@@ -8,7 +8,7 @@ BASE_PATH="$(realpath --relative-to="$(pwd)" "$( cd "$( dirname "${BASH_SOURCE[0
 MAIN_PY_PATH="$BASE_PATH/__main__.py"
 HASH_GENERATOR_PATH="$BASE_PATH/src/utils/hash_generator.py"
 HASH=$(python3 "$HASH_GENERATOR_PATH")
-DATA_IMPORT_DIR="$BASE_PATH/content/import/$HASH/"
+DATA_IMPORT_DIR="$BASE_PATH/temp/$HASH/"
 # PDF_EXPORT_DIR="$BASE_PATH/content/export/$HASH/"
 
 mkdir $DATA_IMPORT_DIR
