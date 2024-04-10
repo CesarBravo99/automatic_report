@@ -18,5 +18,6 @@ sudo apt-get install wget
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 pip install --no-cache-dir -r $BASE_PATH/requirements.txt
+sudo apt-get install unzip
 
 chmod +x $BASE_PATH/make_report.sh
