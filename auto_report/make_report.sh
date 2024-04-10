@@ -16,6 +16,7 @@ mkdir $PDF_EXPORT_DIR
 
 if [ -d "$DATA_INPUT_DIR" ]; then
     cp -R $DATA_INPUT_DIR/* $DATA_IMPORT_DIR
+    ZIP_FILE="$(find $DATA_IMPORT_DIR -iname \*.zip)"
     unzip $DATA_IMPORT_DIR/easylabel.zip -d $DATA_IMPORT_DIR
     echo "The input folder has been copied successfully."
     echo "Running the script with the following arguments:"

@@ -4,6 +4,7 @@ uc.cl/
 export/
 import/
 upload/
+output/
 *.py[cod]
 *$py.class
 
