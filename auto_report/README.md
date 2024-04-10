@@ -44,12 +44,12 @@ auto_report/make_report.sh auto_report/test/input auto_report/test/output a
 
 The $PDF_CONFIG argument represent the types of Report PDF's, this arg could be
 
-- `a`: all
-- `s`: separated
-- `b`: bitacora
-- `l`: lobera
-- `p`: pecera
-- `t`: tensores
+- `a`: all: Get the entire report
+- `s`: separated: Get the report splitted by their sections
+- `b`: bitacora: Get the bitacora section
+- `l`: lobera: Get the lobera section 
+- `p`: pecera: Get the pecera section 
+- `t`: tensores: Get the tensores section
 
 
 ### Installing
