@@ -1,0 +1,16 @@
+{% if message %}
+<div class="alert alert-warning" role="alert">
+    {% for message in messages %} {{ message|safe }} {% endfor %}
+</div>
+{% endif %}
+<form
+    action="{% url 'upload-images' %}"
+    method="post"
+    enctype="multipart/form-data"
+    class="file-upload">
+>
+    {% csrf_token %}
+    <label for="file-upload">Seleccionar imágenes</label>
+    <input id="file-upload" type="file" name="images" multiple />
+    <button type="submit" class="btn btn-primary mt-2">Subir imágenes</button>
+</form>
