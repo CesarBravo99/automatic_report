@@ -609,8 +609,8 @@
             "1": 10
         },
         "scopes": {
-            "0": 201,
-            "1": 101
+            "0": 101,
+            "1": 201
         },
         "x_flip": {
             "0": false,
@@ -625,12 +625,12 @@
             "1": true
         },
         "cardinals": {
-            "0": ["Canal", "Distal", "Costa", "Proximal"],
-            "1": ["Canal", "Proximal", "Costa", "Distal"]
+            "0": ["Canal", "Proximal", "Costa", "Distal"],
+            "1": ["Canal", "Distal", "Costa", "Proximal"]
         },
         "pontoon": {
-            "0": "right",
-            "1": "left"
+            "0": "left",
+            "1": "right"
         },
         "filename": "CARMEN"
     },

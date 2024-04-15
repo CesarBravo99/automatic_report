@@ -1,42 +1,129 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}EasyLabel{% endblock %}
 
 {% block left_sidebar %}
-    {% include 'left-sidebar.html' %}
+    {% include 'left-sidebar-easylabel.html' %}
 {% endblock %}
 
 {% block content %}
+
+<script type="text/javascript">
+    var hash = "{% static hash %}".replace(/^.*[\\/]/, '');
+    var staticBaseUrl = "{% get_static_prefix %}";
+    var centers = JSON.parse("{{ centers|escapejs }}")
+</script>
+
+<script src="{% static 'js/openGrid.js' %}"></script>
+<script src="{% static 'js/refreshCenters.js' %}"></script>
+
 <div class="tab">
-    <button class="tablinks">Lobera</button>
-    <button class="tablinks">Pecera</button>
-    <button class="tablinks">Tensor</button>
+    <button class="tablinks" onclick="openGrid(event, 'lobera')" clicked>Lobera</button>
+    <button class="tablinks" onclick="openGrid(event, 'pecera')">Pecera</button>
+    <button class="tablinks" onclick="openGrid(event, 'tensores')">Tensor</button>
     <div class="dropdown-wrapper-centers">
-        {% if modules.value > 1 %}
-            <select id="modules-dropdown" class="modules-dropdown">
-                {% for module in modules.iterator %}
-                    <option value="{{ Modulo }}">Módulo {{ module }}</option>
-                {% endfor %}
-            </select>
-        {% endif %}
-        <select id="centers-dropdown" class="centers-dropdown">
+        <select id="modules-dropdown" class="modules-dropdown" onclick="refreshModule(event)">
+            {% for module in modules %}
+                {% if module == 1 %}
+                    <option value="{{ module }}" selected>Módulo {{ module }}</option>
+                {% else %}
+                    <option value="{{ module }}">Módulo {{ module }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <select id="centers-dropdown" class="centers-dropdown" onchange="refreshCenters(event)">
             {% for name in data.centers_name %}
                 {% if center == name %}
-                    <option value="{{ center }}" selected>{{ name }}</option>
+                    <option value="{{ name }}" selected>{{ name }}</option>
                 {% else %}
-                    <option value="{{ center }}">{{ name }}</option>
+                    <option value="{{ name }}">{{ name }}</option>
                 {% endif %}
             {% endfor %}
         </select>
     </div>
 </div>
+
+
 <div id="lobera" class="tabcontent">
     <div class="grid-container-loberas">
         <div class="loberas-left-column">
-            <h1 class="loberas-legend">Inspección de Fondo Lobero</h1>
+            <h1 class="loberas-legend">Inspección de Fondo Lobero {{ filename }}</h1>
+            <div class="image-container">
+                <img src="{% static templates.lobera_fondo %}" class="img-loberas-fondo" id="img-loberas-fondo">
+            </div>
+            <h1 class="loberas-legend">Inspección de Lateral Lobero</h1>
+            <div class="image-container">
+                <img src="{% static templates.lobera_lateral %}" class="img-loberas-lateral" id="img-loberas-lateral">
+            </div>
         </div>
+
+        <div class="loberas-right-column">
+            <h1 class="loberas-legend">Inspección de Cabeceras</h1>
+            <div class="image-container">
+                <img src="{% static templates.lobera_cabecera %}" class="img-loberas-cabeceras" id="img-loberas-cabeceras">
+            </div>
+            <h1 class="loberas-legend">Inspección de Mamparos</h1>
+            <div class="dropdown-wrapper">
+                <select id="mamparos-dropdown" class="mamparos-dropdown">
+                    {% for label in mamparo_labels %}
+                        <option value="{{ label }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/seawolf_sep1.png' %}" class="img-loberas-mamparos">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="pecera" class="tabcontent">
+    <div class="dropdown-wrapper">
+        <select id="peceras-dropdown" class="peceras-dropdown">
+            {% for label in pecera_labels %}
+                <option value="{{ label }}">{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="grid-container-peceras">
+        <div class="peceras-left-column">
+            <h1 class="loberas-legend">Frontal</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_lateral.png' %}" class="img-peceras-lateral-1">
+            </div>
+            <h1 class="loberas-legend">Canal</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_lateral.png' %}" class="img-peceras-lateral-2">
+            </div>
+        </div>
+        <div class="peceras-center-column">
+            <h1 class="loberas-legend">Distal</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_lateral.png' %}" class="img-peceras-lateral-3">
+            </div>
+            <h1 class="loberas-legend">Costa</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_lateral.png' %}" class="img-peceras-lateral-4">
+            </div>
+        </div>
+        <div class="peceras-right-column">
+            <h1 class="loberas-legend">Inspección de Fondo Pecera</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_background.png' %}" class="img-peceras-topview">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="tensores" class="tabcontent">
+    <div class="centered-tensores">
+        <img src="{% static templates.tensor %}" class="img-tensores" id="img-tensores">
     </div>
 </div>
 {% endblock %}
 
 {% block right_sidebar %}
+    {% include 'right-sidebar-easylabel.html' %}
 {% endblock %}
