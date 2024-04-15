@@ -1,4 +1,4 @@
-{% if message %}
+{% if messages %}
 <div class="alert alert-warning" role="alert">
     {% for message in messages %} {{ message|safe }} {% endfor %}
 </div>
@@ -7,10 +7,17 @@
     action="{% url 'upload-images' %}"
     method="post"
     enctype="multipart/form-data"
-    class="file-upload">
+    class="file-upload"
 >
     {% csrf_token %}
     <label for="file-upload">Seleccionar imágenes</label>
     <input id="file-upload" type="file" name="images" multiple />
     <button type="submit" class="btn btn-primary mt-2">Subir imágenes</button>
 </form>
+
+<script>
+    document.getElementById("file-upload").onchange = function () {
+        document.querySelector(".file-upload label").innerText =
+            this.files.length + " imágenes seleccionadas";
+    };
+</script>

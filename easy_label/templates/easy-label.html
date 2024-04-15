@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}EasyLabel{% endblock %}
+
+{% block left_sidebar %}
+    {% include 'left-sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="tab">
+    <button class="tablinks">Lobera</button>
+    <button class="tablinks">Pecera</button>
+    <button class="tablinks">Tensor</button>
+    <div class="dropdown-wrapper-centers">
+        {% if modules.value > 1 %}
+            <select id="modules-dropdown" class="modules-dropdown">
+                {% for module in modules.iterator %}
+                    <option value="{{ Modulo }}">Módulo {{ module }}</option>
+                {% endfor %}
+            </select>
+        {% endif %}
+        <select id="centers-dropdown" class="centers-dropdown">
+            {% for name in data.centers_name %}
+                {% if center == name %}
+                    <option value="{{ center }}" selected>{{ name }}</option>
+                {% else %}
+                    <option value="{{ center }}">{{ name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<div id="lobera" class="tabcontent">
+    <div class="grid-container-loberas">
+        <div class="loberas-left-column">
+            <h1 class="loberas-legend">Inspección de Fondo Lobero</h1>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block right_sidebar %}
+{% endblock %}

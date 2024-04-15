@@ -285,7 +285,7 @@
     cursor: pointer;
     text-align: center;
     outline: none; /* Remove default focus outline */
-    background-image: url("/static/img/dropdown-down.png");
+    background-image: url("/static/imgs/dropdown-down.png");
     background-repeat: no-repeat;
     background-position: right 10px center; /* Position for the dropdown arrow */
     background-size: 13px; /* Size of the dropdown arrow */
@@ -361,7 +361,7 @@
     cursor: pointer;
     text-align: center;
     outline: none; /* Remove default focus outline */
-    background-image: url("/static/img/dropdown-down.png");
+    background-image: url("/static/imgs/dropdown-down.png");
     background-repeat: no-repeat;
     background-position: right 10px center; /* Position for the dropdown arrow */
     background-size: 2vh; /* Size of the dropdown arrow */
@@ -588,7 +588,7 @@
     cursor: pointer;
     text-align: center;
     outline: none; /* Remove default focus outline */
-    background-image: url("/static/img/dropdown-down.png");
+    background-image: url("/static/imgs/dropdown-down.png");
     background-repeat: no-repeat;
     background-position: right 10px center; /* Position for the dropdown arrow */
     background-size: 20px; /* Size of the dropdown arrow */
@@ -627,7 +627,7 @@
     cursor: pointer;
     text-align: center;
     outline: none; /* Remove default focus outline */
-    background-image: url("/static/img/dropdown-down.png");
+    background-image: url("/static/imgs/dropdown-down.png");
     background-repeat: no-repeat;
     background-position: right 10px center; /* Position for the dropdown arrow */
     background-size: 15px; /* Size of the dropdown arrow */

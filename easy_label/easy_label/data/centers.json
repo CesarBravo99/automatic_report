@@ -21,7 +21,8 @@
         },
         "pontoon": {
             "0": "top right"
-        }
+        },
+        "filename": "LALEONA"
     },
     "CANALAD 6": {
         "modules": 1,
@@ -45,7 +46,8 @@
         },
         "pontoon": {
             "0": "bottom right"
-        }
+        },
+        "filename": "CANALAD6"
     },
     "CATALINA": {
         "modules": 1,
@@ -69,7 +71,8 @@
         },
         "pontoon": {
             "0": "bottom"
-        }
+        },
+        "filename": "CATALINA"
     },
     "CANALAD 5": {
         "modules": 1,
@@ -93,7 +96,8 @@
         },
         "pontoon": {
             "0": "top right"
-        }
+        },
+        "filename": "CANALAD5"
     },
     "SUR PUYUHUAPI": {
         "modules": 1,
@@ -117,7 +121,8 @@
         },
         "pontoon": {
             "0": "bottom right"
-        }
+        },
+        "filename": "SURPUYUHUAPI"
     },
     "ISLA MAY": {
         "modules": 1,
@@ -141,7 +146,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "ISLAMAY"
     },
     "GRAFFER": {
         "modules": 1,
@@ -165,7 +171,8 @@
         },
         "pontoon": {
             "0": "bottom"
-        }
+        },
+        "filename": "GRAFFER"
     },
     "PUNTA MORRO": {
         "modules": 2,
@@ -196,7 +203,8 @@
         "pontoon": {
             "0": "bottom left",
             "1": "top left"
-        }
+        },
+        "filename": "PUNTAMORRO"
     },
     "ISLOTE BONITO": {
         "modules": 2,
@@ -227,7 +235,8 @@
         "pontoon": {
             "0": "bottom left",
             "1": "top left"
-        }
+        },
+        "filename": "ISLOTEBONITO"
     },
     "MARTA": {
         "modules": 1,
@@ -251,7 +260,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "MARTA"
     },
     "PUNTA GANSO": {
         "modules": 1,
@@ -275,7 +285,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "PUNTAGANSO"
     },
     "CANAL PEREZ NORTE": {
         "modules": 1,
@@ -299,7 +310,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "CANALPEREZNORTE"
     },
     "ANGOSTURA": {
         "modules": 1,
@@ -323,7 +335,8 @@
         },
         "pontoon": {
             "0": "bottom right"
-        }
+        },
+        "filename": "ANOGOSTURA"
     },
     "BAHIA ANITA": {
         "modules": 1,
@@ -347,7 +360,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "BAHIAANITA"
     },
     "ESTERO SOTO": {
         "modules": 1,
@@ -371,7 +385,8 @@
         },
         "pontoon": {
             "0": "bottom"
-        }
+        },
+        "filename": "ESTEROSOTO"
     },
     "REFUGIO": {
         "modules": 1,
@@ -395,7 +410,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "REFUGIO"
     },
     "PUNTILLA": {
         "modules": 2,
@@ -426,7 +442,8 @@
         "pontoon": {
             "0": "right",
             "1": "left"
-        }
+        },
+        "filename": "PUNTILLA"
     },
     "MELIMOYU": {
         "modules": 1,
@@ -450,7 +467,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "MELIMOYU"
     },
     "AMPARO GRANDE": {
         "modules": 1,
@@ -474,7 +492,8 @@
         },
         "pontoon": {
             "0": "right"
-        }
+        },
+        "filename": "AMPAROGRANDE"
     },
     "COLORADA": {
         "modules": 1,
@@ -498,7 +517,8 @@
         },
         "pontoon": {
             "0": "right"
-        }
+        },
+        "filename": "COLORADA"
     },
     "ELEMA": {
         "modules": 1,
@@ -522,7 +542,8 @@
         },
         "pontoon": {
             "0": "bottom right"
-        }
+        },
+        "filename": "ELEMA"
     },
     "VALVERDE 4": {
         "modules": 1,
@@ -546,7 +567,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "VALVERDE4"
     },
     "CONCOTO": {
         "modules": 2,
@@ -577,7 +599,8 @@
         "pontoon": {
             "0": "left",
             "1": "left"
-        }
+        },
+        "filename": "CONCOTO"
     },
     "CARMEN": {
         "modules": 2,
@@ -608,7 +631,8 @@
         "pontoon": {
             "0": "right",
             "1": "left"
-        }
+        },
+        "filename": "CARMEN"
     },
     "AVELLANO": {
         "modules": 1,
@@ -632,7 +656,8 @@
         },
         "pontoon": {
             "0": "left"
-        }
+        },
+        "filename": "AVELLANO"
     },
     "PUNTA PETISO": {
         "modules": 2,
@@ -663,7 +688,8 @@
         "pontoon": {
             "0": "right",
             "1": "left"
-        }
+        },
+        "filename": "PUNTAPETISO"
     },
     "JESUS 3": {
         "modules": 1,
@@ -687,7 +713,8 @@
         },
         "pontoon": {
             "0": "right"
-        }
+        },
+        "filename": "JESUS3"
     },
     "SANCHEZ": {
         "modules": 1,
@@ -711,7 +738,8 @@
         },
         "pontoon": {
             "0": "top"
-        }
+        },
+        "filename": "SANCHEZ"
     },
     "PUNTA MANO": {
         "modules": 2,
@@ -742,6 +770,7 @@
         "pontoon": {
             "0": "right",
             "1": "left"
-        }
+        },
+        "filename": "PUNTAMANO"
     }
 }
