@@ -1,5 +1,6 @@
 import os
 import json
+from dotenv import load_dotenv
 
 from django.shortcuts import render, redirect
 from django.conf import settings
@@ -31,6 +32,8 @@ def easy_label(request, hash):
     if y_flip: mamparo_labels = list(reversed(mamparo_labels))
     pecera_labels = [str(scope)[0] + "0" + str(i+1) if i < 9 else str(scope)[0] + str(i+1) for i in range(jaulas)]
 
+    load_dotenv()
+    os.environ["HASH"] = hash
     context = {
         "hash": hash,
         "data": data,

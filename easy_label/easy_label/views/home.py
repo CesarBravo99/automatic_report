@@ -1,4 +1,12 @@
+import os
+from dotenv import load_dotenv
+
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'index.html')
+    load_dotenv()
+    hash = os.getenv('HASH')
+    context = {
+        "hash": hash
+    }
+    return render(request, 'index.html', context=context)
