@@ -8,15 +8,12 @@
 
 {% block content %}
 
+{% include 'icons.html' %}
+
 <script type="text/javascript">
     var hash = "{% static hash %}".replace(/^.*[\\/]/, '');
     var staticBaseUrl = "{% get_static_prefix %}";
     var centers = JSON.parse("{{ centers|escapejs }}")
-
-    // var easyLabelIcon = document.getElementById('easy-label-icon');
-    // var prueba = easyLabelIcon.getAttribute('href') + hash;
-    // easyLabelIcon.href = prueba
-    // alert(easyLabelIcon.href);
 </script>
 
 <script src="{% static 'js/openGrid.js' %}"></script>

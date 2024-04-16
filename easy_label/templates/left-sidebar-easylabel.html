@@ -1,11 +1,22 @@
 {% load static %}
 
+<script src="{% static 'js/imageSelector.js' %}"></script>
 
 <div class="image-list">
     <h4 class="image-list-title">Selector de Imágenes</h4>
     <div class="selected-image-container">
-        <img id="selected-image1" src="{% static 'imgs/favicon.png'%}" alt="Selected Image" />
-        <img id="selected-image2" src="{% static 'imgs/favicon.png'%}" alt="Selected Image" />
-        <img id="selected-image3" src="{% static 'imgs/favicon.png'%}" alt="Selected Image" />
+        {% for img_path in imgs %}
+            {% if forloop.counter0|divisibleby:3 %}
+                <div class="image-row"> <!-- Start of a new row every 2 images -->
+            {% endif %}
+
+            <div class="image-item">
+                <img src="media/{{ hash }}/imgs/{{ img_path }}" class="img-thumbnail" alt="{{ img_path }}" />
+            </div>
+
+            {% if forloop.counter|divisibleby:3 or forloop.last %}
+                </div> <!-- End of the row -->
+            {% endif %}
+        {% endfor %}
     </div>
 </div>

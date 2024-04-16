@@ -15,6 +15,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from easy_label.views import home
 from easy_label.views import tutorial
@@ -28,3 +30,6 @@ urlpatterns = [
     path('upload-images', upload_images, name='upload-images'),
     path('<hash>', easy_label, name='easy-label'),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

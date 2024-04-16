@@ -36,6 +36,7 @@ def easy_label(request, hash):
     os.environ["HASH"] = hash
     context = {
         "hash": hash,
+        "imgs": data['imgs'],
         "data": data,
         "centers": json.dumps(data['centers']),
         "center": center,

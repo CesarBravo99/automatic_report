@@ -12,6 +12,7 @@ class DataLoader():
         self.media_dir = os.path.join(settings.MEDIA_ROOT, str(hash), 'imgs')
         self.centers_path = os.path.join(settings.BASE_DIR, 'easy_label', 'data', 'centers.json')
         self.weights_path = os.path.join(settings.BASE_DIR, 'easy_label', 'data', 'weights.json')
+        self.imgs = ''
 
         with open(self.centers_path, 'r', encoding='latin-1') as f:
             centers = json.load(f)
@@ -32,6 +33,7 @@ class DataLoader():
 
     def load_data(self):
         self.sanity_check()
+        print(self.imgs)
         data = {
             "imgs": self.imgs,
             "centers": self.centers,

@@ -493,6 +493,7 @@
   .selected-image-container {
     width: 100%;
     margin-bottom: var(--spacing-medium);
+    max-height: 500px;
   }
   
   .selected-image-container img {
