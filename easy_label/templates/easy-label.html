@@ -20,7 +20,7 @@
 <script src="{% static 'js/refreshCenters.js' %}"></script>
 
 <div class="tab">
-    <button class="tablinks" onclick="openGrid(event, 'lobera')" clicked>Lobera</button>
+    <button class="tablinks" onclick="openGrid(event, 'lobera')">Lobera</button>
     <button class="tablinks" onclick="openGrid(event, 'pecera')">Pecera</button>
     <button class="tablinks" onclick="openGrid(event, 'tensores')">Tensor</button>
     <div class="dropdown-wrapper-centers">
@@ -124,6 +124,9 @@
         <img src="{% static templates.tensor %}" class="img-tensores" id="img-tensores">
     </div>
 </div>
+
+<script> document.getElementsByClassName("tablinks")[0].click() </script>
+
 {% endblock %}
 
 {% block right_sidebar %}
