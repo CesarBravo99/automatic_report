@@ -9,23 +9,19 @@
 {% block content %}
 {% include 'icons.html' %}
 
-<script type="text/javascript">
-    var staticBaseUrl = "{% get_static_prefix %}";
-    var hash = "{% static hash %}".replace(/^.*[\\/]/, '');
-    // var imgs_name = JSON.parse("{{ imgs_name|escapejs }}");
-    var imgs_name = "{{ imgs_name|safe }}";
-    var centers = JSON.parse("{{ centers|escapejs }}");
-    // var centers_name = JSON.parse("{{ centers_name|escapejs }}");
-    var weights = JSON.parse("{{ weights|escapejs }}");
-    
+<script type='text/javascript'>
+    var staticBaseUrl = '{% get_static_prefix %}';
+    var hash = '{% static hash %}'.replace(/^.*[\\/]/, '');
+    var imgs_name = JSON.parse('{{ imgs_name|safe }}');
+    var centers = JSON.parse('{{ centers|escapejs }}');
+    var weights = JSON.parse('{{ weights|escapejs }}');
+
     var imageMetaData = {};
     for(i = 0; i < imgs_name.length; i++){
         imageMetaData[imgs_name[i]] = {
-            "comments": "",
+            'comments': '',
         };
     };
-
-    alert("adas")
 </script>
 
 <script src="{% static 'js/openGrid.js' %}"></script>
@@ -36,7 +32,7 @@
 {% include 'easylabel-peceras.html' %}
 {% include 'easylabel-tensores.html' %}
 
-<script> document.getElementsByClassName("tablinks")[0].click() </script>
+<script> document.getElementsByClassName('tablinks')[0].click() </script>
 
 {% endblock %}
 

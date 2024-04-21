@@ -1,11 +1,13 @@
 {% load static %}
 
+<script src="{% static 'js/comments.js' %}"></script>
+
 <div class="selected-image-container">
     <img id="selected-image" src="{% static 'imgs/favicon_cover.png'%}" alt="Selected Image" />
 </div>
 
 <div class="comment-section">
-    <textarea id="comment-box" placeholder="Agrega un comentario..."></textarea>
+    <textarea id="comment-box" placeholder="Agrega un comentario..." onblur="saveComment()"></textarea>
     <!-- <button id="save-comment-button">Save Comment</button> -->
 </div>
 

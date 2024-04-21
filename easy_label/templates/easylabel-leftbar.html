@@ -5,13 +5,13 @@
 <div class="image-list">
     <h4 class="image-list-title">Selector de Imágenes</h4>
     <div class="selected-image-container">
-        {% for img_path in imgs_name %}
+        {% for img_name in init_easylabel.imgs_name %}
             {% if forloop.counter0|divisibleby:3 %}
                 <div class="image-row"> <!-- Start of a new row every 2 images -->
             {% endif %}
 
             <div class="image-item">
-                <img src="media/{{ hash }}/imgs/{{ img_path }}" class="img-thumbnail" alt="{{ img_path }}" />
+                <img src="media/{{ hash }}/imgs/{{ img_name }}" class="img-thumbnail" alt="{{ img_name }}" />
             </div>
 
             {% if forloop.counter|divisibleby:3 or forloop.last %}
