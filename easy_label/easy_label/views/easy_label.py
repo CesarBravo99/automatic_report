@@ -10,16 +10,16 @@ from easy_label.src import DataLoader
 
 def easy_label(request, hash):
     data_loader = DataLoader(hash)
-    data = data_loader.load_data()
-    center = 'CARMEN'
+    imgs_name, centers, centers_name, weights = data_loader.load_data()
+    center = 'AMPARO GRANDE'
     module = "0"
-    modules = data['centers'][center]['modules']
-    filename = data['centers'][center]['filename']
-    jaulas = data['centers'][center]['jails'][module]
-    scope = str(data['centers'][center]['scopes'][module])
-    x_flip = int(data['centers'][center]['x_flip'][module])
-    y_flip = int(data['centers'][center]['y_flip'][module])
-    double = int(data['centers'][center]['double'][module])
+    modules = centers[center]['modules']
+    filename = centers[center]['filename']
+    jaulas = centers[center]['jails'][module]
+    scope = str(centers[center]['scopes'][module])
+    x_flip = int(centers[center]['x_flip'][module])
+    y_flip = int(centers[center]['y_flip'][module])
+    double = int(centers[center]['double'][module])
     
     templates = {
         "lobera_fondo": os.path.join(os.path.normpath('imgs/assets/background/'), f'{filename}_{module}.png'),
@@ -34,19 +34,20 @@ def easy_label(request, hash):
 
     load_dotenv()
     os.environ["HASH"] = hash
-    context = {
-        "hash": hash,
-        "imgs": data['imgs'],
-        "data": data,
-        "centers": json.dumps(data['centers']),
+
+    init_easylabel = {
         "center": center,
-        "modules": range(1, modules+1),
-        "filename": filename,
+        "centers_name": centers_name,
         "templates": templates,
+        "modules": range(1, modules+1),
         "mamparo_labels": mamparo_labels,
         "pecera_labels": pecera_labels,
-        "x_flip": x_flip,
-        "y_flip": y_flip,
-        "double": double,
     }
-    return render(request, 'easy-label.html', context=context)
+    context = {
+        "hash": hash,
+        "imgs_name": imgs_name,
+        "centers": json.dumps(centers),
+        "weights": json.dumps(weights),
+        "init_easylabel": init_easylabel,
+    }
+    return render(request, 'easylabel.html', context=context)

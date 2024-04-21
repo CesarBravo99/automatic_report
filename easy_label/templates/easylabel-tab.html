@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="tab">
+    <button class="tablinks" onclick="openGrid(event, 'lobera')">Lobera</button>
+    <button class="tablinks" onclick="openGrid(event, 'pecera')">Pecera</button>
+    <button class="tablinks" onclick="openGrid(event, 'tensores')">Tensor</button>
+    <div class="dropdown-wrapper-centers">
+        <select id="modules-dropdown" class="modules-dropdown" onclick="refreshModule(event)">
+            {% for module in init_easylabel.modules %}
+                {% if module == 1 %}
+                    <option value="{{ module }}" selected>Módulo {{ module }}</option>
+                {% else %}
+                    <option value="{{ module }}">Módulo {{ module }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <select id="centers-dropdown" class="centers-dropdown" onchange="refreshCenters(event)">
+            {% for name in init_easylabel.centers_name %} 
+                {% if init_easylabel.center == name %}
+                    <option value="{{ name }}" selected>{{ name }}</option>
+                {% else %}
+                    <option value="{{ name }}">{{ name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+</div>

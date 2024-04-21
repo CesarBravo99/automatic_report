@@ -1,0 +1,34 @@
+{% load static %}
+
+<div id="lobera" class="tabcontent">
+    <div class="grid-container-loberas">
+        <div class="loberas-left-column">
+            <h1 class="loberas-legend">Inspección de Fondo Lobero</h1>
+            <div class="image-container">
+                <img src="{% static init_easylabel.templates.lobera_fondo %}" class="img-loberas-fondo" id="img-loberas-fondo">
+            </div>
+            <h1 class="loberas-legend">Inspección de Lateral Lobero</h1>
+            <div class="image-container">
+                <img src="{% static init_easylabel.templates.lobera_lateral %}" class="img-loberas-lateral" id="img-loberas-lateral">
+            </div>
+        </div>
+
+        <div class="loberas-right-column">
+            <h1 class="loberas-legend">Inspección de Cabeceras</h1>
+            <div class="image-container">
+                <img src="{% static init_easylabel.templates.lobera_cabecera %}" class="img-loberas-cabeceras" id="img-loberas-cabeceras">
+            </div>
+            <h1 class="loberas-legend">Inspección de Mamparos</h1>
+            <div class="dropdown-wrapper">
+                <select id="mamparos-dropdown" class="mamparos-dropdown">
+                    {% for label in init_easylabel.mamparo_labels %}
+                        <option value="{{ label }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/seawolf_sep1.png' %}" class="img-loberas-mamparos">
+            </div>
+        </div>
+    </div>
+</div>

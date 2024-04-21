@@ -9,4 +9,4 @@ def home(request):
     context = {
         "hash": hash
     }
-    return render(request, 'index.html', context=context)
+    return render(request, 'home.html', context=context)

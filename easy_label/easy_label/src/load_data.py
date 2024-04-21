@@ -12,7 +12,7 @@ class DataLoader():
         self.media_dir = os.path.join(settings.MEDIA_ROOT, str(hash), 'imgs')
         self.centers_path = os.path.join(settings.BASE_DIR, 'easy_label', 'data', 'centers.json')
         self.weights_path = os.path.join(settings.BASE_DIR, 'easy_label', 'data', 'weights.json')
-        self.imgs = ''
+        self.imgs_name = ''
 
         with open(self.centers_path, 'r', encoding='latin-1') as f:
             centers = json.load(f)
@@ -23,21 +23,14 @@ class DataLoader():
         self.weights = weights
 
         # [' '.join(list(map(str.capitalize, center.split(' ')))) for center in self.centers.keys()]
-        self.centers_names = sorted(list(self.centers.keys()))
+        self.centers_name = sorted(list(self.centers.keys()))
 
     def sanity_check(self):
         if not os.path.exists(self.media_dir): 
             return redirect('/')
         else:
-            self.imgs = os.listdir(self.media_dir)
+            self.imgs_name = os.listdir(self.media_dir)
 
     def load_data(self):
         self.sanity_check()
-        print(self.imgs)
-        data = {
-            "imgs": self.imgs,
-            "centers": self.centers,
-            "centers_name": self.centers_names,
-            "weights": self.weights
-        }
-        return data
+        return self.imgs_name, self.centers, self.centers_name, self.weights

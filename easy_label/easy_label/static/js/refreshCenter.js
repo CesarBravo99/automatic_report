@@ -42,7 +42,7 @@ function refreshModule(event) {
     var double = + centers[center]['double'][module];
     var jails = centers[center]['jails'][module];
     var scope = centers[center]['scopes'][module].toString()[0];
-
+    
     document.getElementById("img-loberas-fondo").src = staticBaseUrl + "imgs/assets/background/" + center.replace(/ /g, "") + `_${module}.png`;
     document.getElementById("img-loberas-lateral").src = staticBaseUrl + "imgs/assets/lateral/" + center.replace(/ /g, "") + `_${module}.png`;
     document.getElementById("img-loberas-cabeceras").src = staticBaseUrl + "imgs/assets/fixed/seawolf_head_" + x_flip + y_flip + double + ".png";

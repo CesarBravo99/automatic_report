@@ -1,0 +1,39 @@
+{% load static %}
+
+<div id="pecera" class="tabcontent">
+    <div class="dropdown-wrapper">
+        <select id="peceras-dropdown" class="peceras-dropdown">
+            {% for label in init_easylabel.pecera_labels %}
+                <option value="{{ label }}">{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="grid-container-peceras">
+        <div class="peceras-left-column">
+            <h1 class="loberas-legend">Frontal</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_lateral.png' %}" class="img-peceras-lateral-1">
+            </div>
+            <h1 class="loberas-legend">Canal</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_lateral.png' %}" class="img-peceras-lateral-2">
+            </div>
+        </div>
+        <div class="peceras-center-column">
+            <h1 class="loberas-legend">Distal</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_lateral.png' %}" class="img-peceras-lateral-3">
+            </div>
+            <h1 class="loberas-legend">Costa</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_lateral.png' %}" class="img-peceras-lateral-4">
+            </div>
+        </div>
+        <div class="peceras-right-column">
+            <h1 class="loberas-legend">Inspección de Fondo Pecera</h1>
+            <div class="image-container">
+                <img src="{% static 'imgs/assets/fixed/fishbowl_background.png' %}" class="img-peceras-topview">
+            </div>
+        </div>
+    </div>
+</div>
