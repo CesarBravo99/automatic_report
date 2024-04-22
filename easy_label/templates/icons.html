@@ -1,29 +1,25 @@
 {% load static %}
 
 <script src="{% static 'js/contextMenu.js' %}"></script>
+<script src="{% static 'js/addIcon.js' %}"></script>
 
-<div id="context-menu" class="context-menu">
-    <ul id="context-menu-lobera" class="context-menu-items">
-        <li><span role="icon" aria-label="emoji">✅</span>Correcto</li>
-        <li><span role="icon" aria-label="emoji">❌</span>Rotura/Falla</li>
-        <li><span role="icon" aria-label="emoji">⚠️</span>Anomalía</li>
-    </ul>
-</div>
+<ul id="context-menu-lobera" class="context-menu">
+    <li id="context-link-lobera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">✔️</span>Correcto</li>
+    <li id="context-link-lobera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">❌</span>Rotura/Falla</li>
+    <li id="context-link-lobera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">⚠️</span>Anomalía</li>
+    <li id="context-link-pecera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">♻️</span>Adherencia</li>
+</ul>
 
-<div id="context-menu" class="context-menu">
-    <ul id="context-menu-pecera" class="context-menu-items">
-        <li><span role="icon" aria-label="emoji">✅</span>Correcto</li>
-        <li><span role="icon" aria-label="emoji">❌</span>Rotura/Falla</li>
-        <li><span role="icon" aria-label="emoji">⚠️</span>Anomalía</li>
-        <li><span role="icon" aria-label="emoji">➕</span>Adherencia</li>
-    </ul>
-</div>
+<ul id="context-menu-pecera" class="context-menu">
+    <li id="context-link-pecera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">✔️</span>Correcto</li>
+    <li id="context-link-pecera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">❌</span>Rotura/Falla</li>
+    <li id="context-link-pecera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">⚠️</span>Anomalía</li>
+    <li id="context-link-pecera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">♻️</span>Adherencia</li>
+    <li id="context-link-pecera" class="context-link"><span class="context-label" role="icon" aria-label="emoji">💀</span>Mortalidad</li>
+</ul>
 
-<div id="context-menu" class="context-menu">
-    <ul id="context-menu-tensores" class="context-menu-items">
-        <li><span role="icon" aria-label="emoji">✅</span>Correcto</li>
-        <li><span role="icon" aria-label="emoji">❌</span>Rotura/Falla</li>
-        <li><span role="icon" aria-label="emoji">⚠️</span>Anomalía</li>
-        <li><span role="icon" aria-label="emoji">➕</span>Adherencia</li>
-    </ul>
-</div>
+<ul id="context-menu-tensores" class="context-menu">
+    <li id="context-link-tensores" class="context-link"><span class="context-label" role="icon" aria-label="emoji">✔️</span>Correcto</li>
+    <li id="context-link-tensores" class="context-link"><span class="context-label" role="icon" aria-label="emoji">⚠️</span>Falta tensión</li>
+    <li id="context-link-tensores" class="context-link"><span class="context-label" role="icon" aria-label="emoji">❌</span>Sin tensión</li>
+</ul>
