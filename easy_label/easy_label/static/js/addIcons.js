@@ -1,6 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    
-
-})
+function addIcon(annText, annIcon){
+    // alert(annIcon);
+    // alert(annText)
+};

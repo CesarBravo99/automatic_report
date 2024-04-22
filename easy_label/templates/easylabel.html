@@ -3,7 +3,7 @@
 {% block title %}EasyLabel{% endblock %}
 
 {% block left_sidebar %}
-{% include 'easylabel-leftbar.html' %}
+    {% include 'easylabel-leftbar.html' %}
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,14 @@
     var imageMetaData = {};
     for(i = 0; i < imgs_name.length; i++){
         imageMetaData[imgs_name[i]] = {
-            'comments': '',
+            'module': '',
+            'system': '',
+            'separator': '',
+            'type': '',
+            'x': 0,
+            'y': 0,
+            'obs': '',
+            'id': '',
         };
     };
 </script>
