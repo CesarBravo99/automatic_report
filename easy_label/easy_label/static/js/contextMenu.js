@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             template.addEventListener("contextmenu", function (event) {
                 event.preventDefault();
                 if (document.getElementById('selected-image').src.split('/').pop() == 'favicon_cover.png') return;
-                coords = getCoords(event, system, template);
+                imgCoords = getImgCoords(event, system, template);
                 contextMenu[system.id].style.left = `${event.pageX}px`;
                 contextMenu[system.id].style.top = `${event.pageY}px`;
                 contextMenu[system.id].style.display = 'block';
@@ -33,14 +33,27 @@ document.addEventListener('DOMContentLoaded', function () {
             const annText = this.innerText.slice(3);
             const annIcon = this.querySelector("span[role='icon']").textContent;
             var img_name = document.getElementById('selected-image').src.split('/').pop()
-            saveAnnotation(img_name, coords, annText)
+            saveAnnotation(img_name, imgCoords, annText)
             addIcon(annIcon)
             contextMenu[system.id].style.display = 'none';
+            });
+            option.addEventListener('dblclick', function(event) {
+                event.preventDefault();
             });
         });
     });
 
-    function getCoords(event, system, template) {
+    function getIconCoords(event, system, template){
+        const imgRect = template.getBoundingClientRect();
+        var x = event.clientX - imgRect.left;
+        var y = event.clientY - imgRect.top;
+
+        return {
+            
+        }
+    };
+
+    function getImgCoords(event, system, template) {
         const imgRect = template.getBoundingClientRect();
         var x = event.clientX - imgRect.left;
         var y = event.clientY - imgRect.top;

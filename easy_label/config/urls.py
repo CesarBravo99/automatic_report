@@ -22,6 +22,7 @@ from easy_label.views import home
 from easy_label.views import tutorial
 from easy_label.views import easy_label
 from easy_label.src import upload_images
+from easy_label.src import download
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,7 @@ urlpatterns = [
     path('tutorial', tutorial, name='tutorial'),
     path('upload-images', upload_images, name='upload-images'),
     path('<hash>', easy_label, name='easy-label'),
+    path('download', download, name='download'),
 ]
 
 
