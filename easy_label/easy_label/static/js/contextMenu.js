@@ -27,10 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const type = this.querySelector("span[role='icon']").ariaLabel;
             const icon = this.querySelector("span[role='icon']").textContent;
             const img_name = document.getElementById('selected-image').src.split('/').pop();
-            alert(icon)
             saveImgMetadata(img_name, menuMetadata, type);
             saveIconMetadata(img_name, menuMetadata, icon);
-            refeshIcons();
+            refeshIcons(icon);
             hideMenu();
             });
             option.addEventListener('dblclick', function(event) {event.preventDefault()});
@@ -103,17 +102,18 @@ function saveIconMetadata(img_name, menuMetadata, icon){
     imageMetaData[img_name]['icon']['y'] = menuMetadata.y;
 }
 
-function refeshIcons(){
+function refeshIcons(icon){
     // alert(imageMetaData['0.JPG']['json']['y'])
-    refreshTemplates();
+    refreshTemplates(icon);
     // refreshFrames()
 };
 
-function refreshTemplates(){
+function refreshTemplates(icon){
     for(i = 0; i < imgs_name.length; i++){
         if (imageMetaData[imgs_name[i]]['icon']['icon'] != ''){
-            icon = createIcon(imgs_name[i])
-            alert(icon.textContent)
+            // icon = createIcon(imgs_name[i])
+            alert(icon)
+            alert(alert(imageMetaData[imgs_name[i]]['icon']['icon']))
             // imageMetaData[imgs_name[i]]['icon']['template'].appendChild(icon)
         }
     }
@@ -127,7 +127,6 @@ function createIcon(img_name) {
     const icon = document.createElement("span");
     icon.className = "icon-class";
     icon.textContent = imageMetaData[img_name]['icon']['icon'];
-    alert(imageMetaData[img_name]['icon']['icon'])
     icon.style.position = "absolute";
     return icon;
 };
