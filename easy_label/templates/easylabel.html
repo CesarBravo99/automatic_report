@@ -17,21 +17,27 @@
     var weights = JSON.parse('{{ weights|escapejs }}');
 
     var imageMetaData = {};
-    var iconMetaData = {};
     for(i = 0; i < imgs_name.length; i++){
         imageMetaData[imgs_name[i]] = {
-            'module': '',
-            'system': '',
-            'separator': '',
-            'type': '',
-            'x': 0,
-            'y': 0,
-            'obs': '',
-            'id': '',
+            'json': {
+                'module': '',
+                'system': '',
+                'separator': '',
+                'type': '',
+                'x': 0,
+                'y': 0,
+                'obs': '',
+                'id': '',
+            },
+            'icon': {
+                'module': '',
+                'system': '',
+                'template': '',
+                'icon': '',
+                'x': 0,
+                'y': 0,
+            },
         };
-        iconMetaData[imgs_name[i]] = {
-             
-        }
     };
 </script>
 
