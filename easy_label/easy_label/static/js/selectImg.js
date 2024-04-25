@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('selected'); 
             document.getElementById('selected-image').src = this.getAttribute('src');
             const commentBox = document.getElementById('comment-box');
-            commentBox.value = imageMetaData[this.getAttribute('src').split('/').pop()]['obs'];
+            commentBox.value = imageMetaData[this.getAttribute('src').split('/').pop()]['json']['obs'];
         });
     });
 });

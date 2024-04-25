@@ -100,24 +100,31 @@ function saveIconMetadata(img_name, menuMetadata, icon){
     imageMetaData[img_name]['icon']['icon'] = icon;
     imageMetaData[img_name]['icon']['x'] = menuMetadata.x;
     imageMetaData[img_name]['icon']['y'] = menuMetadata.y;
+    imageMetaData[img_name]['icon']['span'] = createIcon(img_name);
 }
 
 function refeshIcons(icon){
-    // alert(imageMetaData['0.JPG']['json']['y'])
     refreshTemplates(icon);
     // refreshFrames()
 };
 
 function refreshTemplates(icon){
+    document.querySelectorAll(".tabcontent").forEach((system) => {
+        document.querySelectorAll("[id=image-container-" + system.id + "]").forEach((template) => {
+            while (template.children.length > 1) {
+                template.removeChild(template.lastChild)
+            }
+        });
+    });
+
     for(i = 0; i < imgs_name.length; i++){
-        if (imageMetaData[imgs_name[i]]['icon']['icon'] != ''){
-            // icon = createIcon(imgs_name[i])
-            alert(icon)
-            alert(alert(imageMetaData[imgs_name[i]]['icon']['icon']))
-            // imageMetaData[imgs_name[i]]['icon']['template'].appendChild(icon)
+        if (imageMetaData[imgs_name[i]]['icon']['span'] != null){
+            imageMetaData[imgs_name[i]]['icon']['template'].appendChild(imageMetaData[imgs_name[i]]['icon']['span'])
         }
     }
 }
+
+func
 
 function refreshFrames(){
 
@@ -128,5 +135,25 @@ function createIcon(img_name) {
     icon.className = "icon-class";
     icon.textContent = imageMetaData[img_name]['icon']['icon'];
     icon.style.position = "absolute";
+
+    const targetImageRect = imageMetaData[img_name]['icon']['template'].getBoundingClientRect();
+    const iconWidth = 33;
+    const iconHeight = 36;
+    var centerX = 0
+    var centerY = 0
+    
+    if (imageMetaData[img_name]['json']['type'] == 'correct'){
+        centerX = targetImageRect.left + imageMetaData[img_name]['icon']['x'] - iconWidth * 4/ 11;
+        centerY = targetImageRect.top + imageMetaData[img_name]['icon']['y'] - iconHeight * 2 / 3; 
+    } else {
+        centerX = targetImageRect.left + imageMetaData[img_name]['icon']['x'] - iconWidth / 2;
+        centerY = targetImageRect.top + imageMetaData[img_name]['icon']['y'] - iconHeight / 2; 
+    };
+
+    icon.style.left = `${centerX}px`;
+    icon.style.top = `${centerY}px`;
+    icon.style.width = iconWidth;
+    icon.style.height = iconHeight;
+
     return icon;
 };
