@@ -1,4 +1,4 @@
-
+// import "./addIcon.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -29,47 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const img_name = document.getElementById('selected-image').src.split('/').pop();
             saveImgMetadata(img_name, menuMetadata, type);
             saveIconMetadata(img_name, menuMetadata, icon);
-            refeshIcons(icon);
+            refeshIcons();
+            refreshFrames(document.getElementById('selected-image').src.split('/').pop());
             hideMenu();
             });
             option.addEventListener('dblclick', function(event) {event.preventDefault()});
         });
     });
 });
-
-function getMenuMetadata(event, system, template) {
-    const imgRect = template.getBoundingClientRect();
-    const x = event.clientX - imgRect.left;
-    const y = event.clientY - imgRect.top;
-    var separator = '';
-    var jail = '';
-
-    if (system.id == 'lobera'){ 
-        sistema = 'lobero';
-        if (template.role == 'separator'){ separator = document.getElementById("mamparos-dropdown").value.split(' - ') } 
-        else { separator = 'None' };
-    } else if (system.id == 'pecera') { 
-        sistema = 'pecero' 
-        jail = 'Pecera ' + document.getElementById("peceras-dropdown").value;
-    } else { 
-        sistema = 'tensores' 
-    };
-
-    x_json = weights[system.id][template.role]['x'][0] + x*weights[system.id][template.role]['x'][1]
-    y_json = weights[system.id][template.role]['y'][0] + x*weights[system.id][template.role]['y'][1]
-
-
-    return {
-        'x': x,
-        'y': y,
-        'x_json': x_json,
-        'y_json': y_json,
-        'system': sistema,
-        'template': template,
-        'separator': separator,
-        'jail': jail,
-    };
-};
 
 function showMenu(event, menu){
     menu.style.left = `${event.pageX}px`;
@@ -83,52 +50,62 @@ function hideMenu(){
     contextMenuTensores.style.display = 'none'
 }
 
+function getMenuMetadata(event, system, template) {
+    const templateBox = template.getBoundingClientRect();
+    const x_icon = event.clientX - templateBox.left;
+    const y_icon = event.clientY - templateBox.top;
+    const x_json = weights[system.id][template.role]['x'][0] + x_icon*weights[system.id][template.role]['x'][1]
+    const y_json = weights[system.id][template.role]['y'][0] + y_icon*weights[system.id][template.role]['y'][1]
+
+    if (system.id == 'lobera') {sistema = 'lobero'}
+    else if (system.id == 'pecera') {sistema = 'pecero'}
+    else {sistema = 'tensores'};
+
+    return {
+        'module': (document.getElementById("modules-dropdown").value - 1).toString(),
+        'center': document.getElementById("centers-dropdown").value,
+        'template': template,
+        'json': {
+            'system': sistema,
+            'separator': (template.role == 'separator') ? document.getElementById("mamparos-dropdown").value.split(' - ') : 'None',
+            'jail': 'Pecera ' + document.getElementById("peceras-dropdown").value,
+            'x': x_json,
+            'y': y_json
+        },
+        'icon': {
+            'system': system.id,
+            'separator': (template.role == 'separator') ? document.getElementById("mamparos-dropdown").value : 'None',
+            'jail': document.getElementById("peceras-dropdown").value,
+            'x': x_icon,
+            'y': y_icon,
+        }
+    };
+};
+
+
 function saveImgMetadata(img_name, menuMetadata, type){
-    imageMetaData[img_name]['json']['module'] = (document.getElementById("modules-dropdown").value - 1).toString();
-    imageMetaData[img_name]['json']['system'] = menuMetadata.system;
+    imageMetaData[img_name]['json']['module'] = menuMetadata.module;
+    imageMetaData[img_name]['json']['system'] = menuMetadata.json.system;
     imageMetaData[img_name]['json']['type'] = type;
-    imageMetaData[img_name]['json']['x'] = menuMetadata.x_json;
-    imageMetaData[img_name]['json']['y'] = menuMetadata.y_json;
-    if (menuMetadata.system == 'lobera'){ imageMetaData[img_name]['json']['separator'] = menuMetadata.separator}
-    else if (menuMetadata.system == 'pecera') { imageMetaData[img_name]['json']['jail'] = menuMetadata.jail };
+    imageMetaData[img_name]['json']['x'] = menuMetadata.json.x;
+    imageMetaData[img_name]['json']['y'] = menuMetadata.json.y;
+    if (menuMetadata.system == 'lobera'){ imageMetaData[img_name]['json']['separator'] = menuMetadata.json.separator}
+    else if (menuMetadata.system == 'pecera') { imageMetaData[img_name]['json']['jail'] = menuMetadata.json.jail };
 }
 
 function saveIconMetadata(img_name, menuMetadata, icon){
-    imageMetaData[img_name]['icon']['module'] = (document.getElementById("modules-dropdown").value - 1).toString();
-    imageMetaData[img_name]['icon']['system'] = menuMetadata.system;
+    imageMetaData[img_name]['icon']['module'] = menuMetadata.module;
+    imageMetaData[img_name]['icon']['center'] = menuMetadata.center;
+    imageMetaData[img_name]['icon']['system'] = menuMetadata.icon.system;
     imageMetaData[img_name]['icon']['template'] = menuMetadata.template;
+    imageMetaData[img_name]['icon']['separator'] = menuMetadata.icon.separator;
+    imageMetaData[img_name]['icon']['jail'] = menuMetadata.icon.jail;
     imageMetaData[img_name]['icon']['icon'] = icon;
-    imageMetaData[img_name]['icon']['x'] = menuMetadata.x;
-    imageMetaData[img_name]['icon']['y'] = menuMetadata.y;
+    imageMetaData[img_name]['icon']['x'] = menuMetadata.icon.x;
+    imageMetaData[img_name]['icon']['y'] = menuMetadata.icon.y;
     imageMetaData[img_name]['icon']['span'] = createIcon(img_name);
-}
-
-function refeshIcons(icon){
-    refreshTemplates(icon);
-    // refreshFrames()
-};
-
-function refreshTemplates(icon){
-    document.querySelectorAll(".tabcontent").forEach((system) => {
-        document.querySelectorAll("[id=image-container-" + system.id + "]").forEach((template) => {
-            while (template.children.length > 1) {
-                template.removeChild(template.lastChild)
-            }
-        });
-    });
-
-    for(i = 0; i < imgs_name.length; i++){
-        if (imageMetaData[imgs_name[i]]['icon']['span'] != null){
-            imageMetaData[imgs_name[i]]['icon']['template'].appendChild(imageMetaData[imgs_name[i]]['icon']['span'])
-        }
-    }
-}
-
-func
-
-function refreshFrames(){
-
-}
+    imageMetaData[img_name]['icon']['thumbnail'] = createThumbnail(img_name);
+};    
 
 function createIcon(img_name) {
     const icon = document.createElement("span");
@@ -157,3 +134,18 @@ function createIcon(img_name) {
 
     return icon;
 };
+
+
+
+function createThumbnail(img_name) {
+    const icon = document.createElement("span");
+    icon.className = "thumbnail-icon no-select";
+    icon.textContent = imageMetaData[img_name]['icon']['icon'];
+    icon.style.position = "absolute";
+    // icon.style.fontSize = "20px";
+    icon.style.left = "50%";
+    icon.style.top = "50%";
+    icon.style.transform = "translate(-50%, -45%)"
+    return icon
+}
+

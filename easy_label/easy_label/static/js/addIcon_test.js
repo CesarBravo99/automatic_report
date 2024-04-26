@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 // Create a new icon
                 var icon = document.createElement("span");
-                icon.className = "thumbnail-icon no-select";
+                icon.className = "thumbnail-icon";
                 icon.textContent = emoji;
 
                 // Style the icon (you can adjust these styles)

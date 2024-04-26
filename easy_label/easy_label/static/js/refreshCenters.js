@@ -28,6 +28,7 @@ function refreshCenters(event) {
 
     refreshMamparos(x_flip, y_flip, jails);
     refreshPeceras(jails, scope);
+    // refreshSystem();
 }
 
 function refreshModule(event) {
@@ -50,12 +51,15 @@ function refreshModule(event) {
 
     refreshMamparos(x_flip, y_flip, jails);
     refreshPeceras(jails, scope);
+    // refreshSystem();
+
 }
 
 function refreshMamparos(x_flip, y_flip, jails){
     /* 
     Refresh the mamparos dropdown when the module or the center is changed
     */
+
     var dropdownModule = document.getElementById("mamparos-dropdown"); 
     for (i = dropdownModule.length - 1; i >= 0; i--) {
         dropdownModule.remove(i);
@@ -83,9 +87,8 @@ function refreshMamparos(x_flip, y_flip, jails){
                 dropdownModule.appendChild(new Option(value, value));
             }
         }
-    }
-
-    
+    };
+    refeshIcons();
 }
 
 function refreshPeceras(jails, scope){
@@ -95,7 +98,7 @@ function refreshPeceras(jails, scope){
     var dropdownModule = document.getElementById("peceras-dropdown"); 
     for (i = dropdownModule.length - 1; i >= 0; i--) {
         dropdownModule.remove(i);
-    }
+    };
     for (i=1; i <= jails; i++) {
         if (i <= 9) {
             var value = scope + "0" + i
@@ -104,5 +107,6 @@ function refreshPeceras(jails, scope){
             var value = scope + i
             dropdownModule.appendChild(new Option(value, value));
         }
-    }
+    };
+    refeshIcons();
 }

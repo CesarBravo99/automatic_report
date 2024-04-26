@@ -1,4 +1,4 @@
-function openGrid(evt, gridName) {
+function openGrid(event, gridName) {
     /*
     Show the grid of the selected section
     */ 
@@ -12,5 +12,7 @@ function openGrid(evt, gridName) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(gridName).style.display = "block";
-    evt.currentTarget.className += " active";
+    event.currentTarget.className += " active";
+    clicked_system = gridName
+    refeshIcons();
 }

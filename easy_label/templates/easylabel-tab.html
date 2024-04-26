@@ -1,11 +1,12 @@
 {% load static %}
 
+
 <div class="tab">
-    <button class="tablinks" onclick="openGrid(event, 'lobera')">Lobera</button>
-    <button class="tablinks" onclick="openGrid(event, 'pecera')">Pecera</button>
-    <button class="tablinks" onclick="openGrid(event, 'tensores')">Tensor</button>
+    <button id="lobera-btn" class="tablinks" onclick="openGrid(event, 'lobera')">Lobera</button>
+    <button id="pecera-btn" class="tablinks" onclick="openGrid(event, 'pecera')">Pecera</button>
+    <button id="tensores-btn" class="tablinks" onclick="openGrid(event, 'tensores')">Tensor</button>
     <div class="dropdown-wrapper-centers">
-        <select id="modules-dropdown" class="modules-dropdown" onclick="refreshModule(event)">
+        <select id="modules-dropdown" class="modules-dropdown" onchange="refreshModule(event)">
             {% for module in init_easylabel.modules %}
                 {% if module == 1 %}
                     <option value="{{ module }}" selected>Módulo {{ module }}</option>

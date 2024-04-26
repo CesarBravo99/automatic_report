@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block content %}
-{% include 'icons.html' %}
 
 <script type='text/javascript'>
     var staticBaseUrl = '{% get_static_prefix %}';
@@ -15,25 +14,27 @@
     var imgs_name = JSON.parse('{{ imgs_name|safe }}');
     var centers = JSON.parse('{{ centers|escapejs }}');
     var weights = JSON.parse('{{ weights|escapejs }}');
-
+    var clicked_system = 'lobera'
     var imageMetaData = {};
     for(i = 0; i < imgs_name.length; i++){
         imageMetaData[imgs_name[i]] = {
             'json': {
-                'module': '',
-                'system': '',
-                'separator': '',
-                'type': '',
+                'module': null,
+                'system': null,
+                'type': null,
                 'x': 0,
                 'y': 0,
                 'obs': '',
-                'id': '',
+                'id': null,
             },
             'icon': {
-                'module': '',
-                'system': '',
-                'template': '',
-                'icon': '',
+                'module': null,
+                'center': null,
+                'system': null,
+                'template': null,
+                'separator': null,
+                'jail': null,
+                'icon': null,
                 'x': 0,
                 'y': 0,
                 'span': null,
@@ -41,10 +42,14 @@
         };
     };
 </script>
+<script src="{% static 'js/addIcons.js' %}"></script>
+<script src="{% static 'js/contextMenus.js' %}"></script>
+<script src="{% static 'js/openGrids.js' %}"></script>
+<script src="{% static 'js/refreshCenters.js' %}"></script>
+<script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/download.js' %}"></script>
 
-<script src="{% static 'js/openGrid.js' %}"></script>
-<script src="{% static 'js/refreshCenter.js' %}"></script>
-
+{% include 'icons.html' %}
 {% include 'easylabel-tab.html' %}
 {% include 'easylabel-loberas.html' %}
 {% include 'easylabel-peceras.html' %}
