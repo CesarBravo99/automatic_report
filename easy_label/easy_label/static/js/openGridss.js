@@ -1,8 +1,4 @@
 function openGrid(event, gridName) {
-    /*
-    Show the grid of the selected section
-    */ 
-
     var tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
@@ -14,5 +10,5 @@ function openGrid(event, gridName) {
     document.getElementById(gridName).style.display = "block";
     event.currentTarget.className += " active";
     clicked_system = gridName
-    refeshIcons();
+    refreshIcons();
 }

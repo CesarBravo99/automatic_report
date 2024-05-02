@@ -88,7 +88,7 @@ function refreshMamparos(x_flip, y_flip, jails){
             }
         }
     };
-    refeshIcons();
+    refreshIcons();
 }
 
 function refreshPeceras(jails, scope){
@@ -108,5 +108,5 @@ function refreshPeceras(jails, scope){
             dropdownModule.appendChild(new Option(value, value));
         }
     };
-    refeshIcons();
+    refreshIcons();
 }

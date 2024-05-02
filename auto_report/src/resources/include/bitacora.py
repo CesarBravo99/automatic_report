@@ -99,18 +99,18 @@ class Bitacora:
 
         for data in self.images.values():
             if data['type'] == 'mortality':
-                    obsMortalidad += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
+                    obsMortalidad += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
             elif data['type'] == 'adherence':
-                obsAdherencia += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
+                obsAdherencia += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
             elif data['system'] == 'lobero':
                 if data['separator'] == 'None':
-                    obsLobera += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
+                    obsLobera += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
                 else:
-                    obsSeparador += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
+                    obsSeparador += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
             elif data['system'] == 'pecero':
-                obsPecera += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
+                obsPecera += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
             elif data['system'] == 'tensor':
-                obsTensor += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
+                obsTensor += data['obs'] + ', ' if data['obs'] != 'Sin observación del piloto' else ''
 
 
         observaciones = ''

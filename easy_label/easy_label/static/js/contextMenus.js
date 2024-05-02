@@ -1,5 +1,3 @@
-// import "./addIcon.js";
-
 document.addEventListener('DOMContentLoaded', function () {
 
     contextMenuLoberas = document.getElementById('context-menu-lobera');
@@ -28,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const icon = this.querySelector("span[role='icon']").textContent;
             const img_name = document.getElementById('selected-image').src.split('/').pop();
             saveImgMetadata(img_name, menuMetadata, type);
-            saveIconMetadata(img_name, menuMetadata, icon);
-            refeshIcons();
+            saveIconMetadata(img_name, menuMetadata, type, icon);
+            refreshIcons();
             refreshFrames(document.getElementById('selected-image').src.split('/').pop());
             hideMenu();
             });
@@ -51,16 +49,20 @@ function hideMenu(){
 }
 
 function getMenuMetadata(event, system, template) {
-    const templateBox = template.getBoundingClientRect();
-    const x_icon = event.clientX - templateBox.left;
-    const y_icon = event.clientY - templateBox.top;
-    const x_json = weights[system.id][template.role]['x'][0] + x_icon*weights[system.id][template.role]['x'][1]
-    const y_json = weights[system.id][template.role]['y'][0] + y_icon*weights[system.id][template.role]['y'][1]
+    const templateBBox = template.getBoundingClientRect();
+    const template_width = templateBBox.right - templateBBox.left;
+    const template_height = templateBBox.bottom - templateBBox.top;
+    const img_width = template.children[0].naturalWidth
+    const img_height = template.children[0].naturalHeight
+
+    const px = (event.clientX - templateBBox.left) / template_width
+    const py = (event.clientY - templateBBox.top) / template_height
+    const x = weights[system.id][template.role]['x'][0] + px*img_width*weights[system.id][template.role]['x'][1]
+    const y = weights[system.id][template.role]['y'][0] + py*img_height*weights[system.id][template.role]['y'][1]
 
     if (system.id == 'lobera') {sistema = 'lobero'}
     else if (system.id == 'pecera') {sistema = 'pecero'}
     else {sistema = 'tensores'};
-
     return {
         'module': (document.getElementById("modules-dropdown").value - 1).toString(),
         'center': document.getElementById("centers-dropdown").value,
@@ -69,15 +71,15 @@ function getMenuMetadata(event, system, template) {
             'system': sistema,
             'separator': (template.role == 'separator') ? document.getElementById("mamparos-dropdown").value.split(' - ') : 'None',
             'jail': 'Pecera ' + document.getElementById("peceras-dropdown").value,
-            'x': x_json,
-            'y': y_json
+            'x': x,
+            'y': y
         },
         'icon': {
             'system': system.id,
             'separator': (template.role == 'separator') ? document.getElementById("mamparos-dropdown").value : 'None',
             'jail': document.getElementById("peceras-dropdown").value,
-            'x': x_icon,
-            'y': y_icon,
+            'x': px,
+            'y': py,
         }
     };
 };
@@ -89,14 +91,15 @@ function saveImgMetadata(img_name, menuMetadata, type){
     imageMetaData['json'][img_name]['type'] = type;
     imageMetaData['json'][img_name]['x'] = menuMetadata.json.x;
     imageMetaData['json'][img_name]['y'] = menuMetadata.json.y;
-    if (menuMetadata.system == 'lobera'){ imageMetaData['json'][img_name]['separator'] = menuMetadata.json.separator}
-    else if (menuMetadata.system == 'pecera') { imageMetaData['json'][img_name]['jail'] = menuMetadata.json.jail };
+    if (menuMetadata.json.system == 'lobero'){ imageMetaData['json'][img_name]['separator'] = menuMetadata.json.separator}
+    else if (menuMetadata.json.system == 'pecero') { imageMetaData['json'][img_name]['jail'] = menuMetadata.json.jail };
 }
 
-function saveIconMetadata(img_name, menuMetadata, icon){
+function saveIconMetadata(img_name, menuMetadata, type, icon){
     imageMetaData['icon'][img_name]['module'] = menuMetadata.module;
     imageMetaData['icon'][img_name]['center'] = menuMetadata.center;
     imageMetaData['icon'][img_name]['system'] = menuMetadata.icon.system;
+    imageMetaData['icon'][img_name]['type'] = type;
     imageMetaData['icon'][img_name]['template'] = menuMetadata.template;
     imageMetaData['icon'][img_name]['separator'] = menuMetadata.icon.separator;
     imageMetaData['icon'][img_name]['jail'] = menuMetadata.icon.jail;
@@ -113,18 +116,21 @@ function createIcon(img_name) {
     icon.textContent = imageMetaData['icon'][img_name]['icon'];
     icon.style.position = "absolute";
 
-    const targetImageRect = imageMetaData['icon'][img_name]['template'].getBoundingClientRect();
+    const templateBBox = imageMetaData['icon'][img_name]['template'].getBoundingClientRect();
+    const template_width = templateBBox.right - templateBBox.left;
+    const template_height = templateBBox.bottom - templateBBox.top;
+
     const iconWidth = 33;
     const iconHeight = 36;
     var centerX = 0
     var centerY = 0
     
     if (imageMetaData['json'][img_name]['type'] == 'correct'){
-        centerX = targetImageRect.left + imageMetaData['icon'][img_name]['x'] - iconWidth * 4/ 11;
-        centerY = targetImageRect.top + imageMetaData['icon'][img_name]['y'] - iconHeight * 2 / 3; 
+        centerX = templateBBox.left + imageMetaData['icon'][img_name]['x']*template_width - iconWidth * 4/ 11;
+        centerY = templateBBox.top + imageMetaData['icon'][img_name]['y']*template_height - iconHeight * 2 / 3; 
     } else {
-        centerX = targetImageRect.left + imageMetaData['icon'][img_name]['x'] - iconWidth / 2;
-        centerY = targetImageRect.top + imageMetaData['icon'][img_name]['y'] - iconHeight / 2; 
+        centerX = templateBBox.left + imageMetaData['icon'][img_name]['x']*template_width - iconWidth / 2;
+        centerY = templateBBox.top + imageMetaData['icon'][img_name]['y']*template_height - iconHeight / 2; 
     };
 
     icon.style.left = `${centerX}px`;

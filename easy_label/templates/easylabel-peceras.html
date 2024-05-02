@@ -2,7 +2,7 @@
 
 <div id="pecera" class="tabcontent">
     <div class="dropdown-wrapper">
-        <select id="peceras-dropdown" class="peceras-dropdown" onchange="refeshIcons()">
+        <select id="peceras-dropdown" class="peceras-dropdown" onchange="refreshIcons()">
             {% for label in init_easylabel.pecera_labels %}
                 <option value="{{ label }}">{{ label }}</option>
             {% endfor %}

@@ -43,7 +43,7 @@ function downloadJson(){
     const postData = {
         imageMetaData: imageMetaData,
     };
-    fetch('/download', {
+    fetch('/download/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -51,9 +51,20 @@ function downloadJson(){
         },
         body: JSON.stringify(postData),
     })
-    .then(response => {
-        resp = response
-        alert(resp)
+    .then(response => response.blob())
+    // .then(blob => {
+    //     const url = window.URL.createObjectURL(blob);
+    //     const downloadLink = document.createElement('a');
+    //     downloadLink.href = url;
+    //     downloadLink.download = 'easylabel.zip';
+    //     document.body.appendChild(downloadLink);
+    //     downloadLink.click();
+    //     document.body.removeChild(downloadLink);
+    //     window.URL.revokeObjectURL(url);
+    // })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error: ' + error.message);
     });
 
 }

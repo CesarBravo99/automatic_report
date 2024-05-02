@@ -11,16 +11,13 @@ import io
 
 def download(request):
     if request.method == 'POST':
-        # response = HttpResponse('aaaaaaa')
-        
 
+        request_metadata = json.loads(request.body)['imageMetaData']
+        image_metadata = request_metadata['json']
+        print(image_metadata)
+        media_dir = os.path.join(settings.MEDIA_ROOT, request_metadata['hash'])
 
-        image_metadata = json.loads(request.body)
-        media_dir = os.path.join(settings.MEDIA_ROOT, image_metadata['hash'])
-        generate_json(media_dir, image_metadata['json'])
-
-        response = HttpResponse("<html><body>It is now.</body></html>")
-        return response
+        generate_json(media_dir, image_metadata)
 
         zip_buffer = generate_zip(media_dir)
         response = HttpResponse(zip_buffer, content_type='application/zip')
@@ -30,10 +27,23 @@ def download(request):
     else:
         return JsonResponse({'error': 'Only POST requests are allowed'})
 
+
+def get_IDs(image_metadata):
+    system_count = {'L': 0, 'P': 0, 'T': 0}
+    for image in image_metadata.keys():
+        image_metadata[image]['obs'] = 'Sin observación del piloto'
+        system = image_metadata[image]['system'][0].upper()
+        image_metadata[image]['id'] = system + str(system_count[system])
+        system_count[system] += 1
+    return image_metadata
+
+
 def generate_json(media_dir, image_metadata):
+    image_metadata =  get_IDs(image_metadata)
     json_file_path = os.path.join(media_dir, 'images.json')
     with open(json_file_path, 'w', encoding='utf-8') as json_file:
         json.dump(image_metadata, json_file, indent=4, ensure_ascii=False)
+
 
 def generate_zip(media_dir):
     zip_buffer = io.BytesIO()

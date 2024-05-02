@@ -20,7 +20,7 @@
             </div>
             <h1 class="loberas-legend">Inspección de Mamparos</h1>
             <div class="dropdown-wrapper">
-                <select id="mamparos-dropdown" class="mamparos-dropdown" onchange="refeshIcons()">
+                <select id="mamparos-dropdown" class="mamparos-dropdown" onchange="refreshIcons()">
                     {% for label in init_easylabel.mamparo_labels %}
                         <option value="{{ label }}">{{ label }}</option>
                     {% endfor %}

@@ -30,7 +30,7 @@ urlpatterns = [
     path('tutorial', tutorial, name='tutorial'),
     path('upload-images', upload_images, name='upload-images'),
     path('<hash>', easy_label, name='easy-label'),
-    path('download', download, name='download'),
+    path('download/', download, name='download'),
 ]
 
 

@@ -1,6 +1,5 @@
-
-function refeshIcons(){
-    document.querySelectorAll("[id=image-container-" + clicked_system + "]").forEach((template) => {
+function refreshIcons(){
+    document.querySelectorAll(".image-container").forEach((template) => {
         while (template.children.length > 1) {
             template.removeChild(template.lastChild)
         }
@@ -9,26 +8,55 @@ function refeshIcons(){
     const module = (document.getElementById("modules-dropdown").value - 1).toString();
     const center = document.getElementById("centers-dropdown").value;
     const separator = document.getElementById("mamparos-dropdown").value;
-    const jail = document.getElementById("peceras-dropdown").value;
+    var jail = document.getElementById("peceras-dropdown").value;
 
     for(i = 0; i < imgs_name.length; i++){
 
         if (imageMetaData.icon[imgs_name[i]].span != null &&  
             imageMetaData.icon[imgs_name[i]].module == module &&
-            imageMetaData.icon[imgs_name[i]].center == center ){
-            if (imageMetaData.icon[imgs_name[i]].system == clicked_system) {
-                if (imageMetaData.icon[imgs_name[i]].separator == 'None' || 
-                    imageMetaData.icon[imgs_name[i]].separator == separator) {
+            imageMetaData.icon[imgs_name[i]].center == center &&
+            imageMetaData.icon[imgs_name[i]].system == clicked_system){
+            refreshIcon(imageMetaData.icon[imgs_name[i]]);
+
+            if (imageMetaData.icon[imgs_name[i]].system == 'tensores'){
                 imageMetaData.icon[imgs_name[i]].template.appendChild(imageMetaData.icon[imgs_name[i]].span)
-                } else if (imageMetaData.icon[imgs_name[i]].jail == jail) {
-                    imageMetaData.icon[imgs_name[i]].template.appendChild(imageMetaData.icon[imgs_name[i]].span)
-                } else {
-                    imageMetaData.icon[imgs_name[i]].template.appendChild(imageMetaData.icon[imgs_name[i]].span)
-                }   
-            }
-        }
-    }
+            } else if (imageMetaData.icon[imgs_name[i]].system == 'pecera' &&
+                        imageMetaData.icon[imgs_name[i]].jail == jail) {
+                imageMetaData.icon[imgs_name[i]].template.appendChild(imageMetaData.icon[imgs_name[i]].span)
+            } else if (imageMetaData.icon[imgs_name[i]].system == 'lobera' && (
+                        imageMetaData.icon[imgs_name[i]].separator == 'None' || 
+                        imageMetaData.icon[imgs_name[i]].separator == separator) ){
+                imageMetaData.icon[imgs_name[i]].template.appendChild(imageMetaData.icon[imgs_name[i]].span)
+            };
+        };
+    };
+};
+
+
+function refreshIcon(icon){
+    const templateBBox = icon.template.getBoundingClientRect();
+    const template_width = templateBBox.right - templateBBox.left;
+    const template_height = templateBBox.bottom - templateBBox.top;
+    const iconWidth = 33;
+    const iconHeight = 36;
+    var centerX = 0
+    var centerY = 0
+
+    if (icon['type'] == 'correct'){
+        centerX = templateBBox.left + icon.x*template_width - iconWidth * 4/ 11;
+        centerY = templateBBox.top + icon.y*template_height - iconHeight * 2 / 3; 
+    } else {
+        centerX = templateBBox.left + icon.x*template_width - iconWidth / 2;
+        centerY = templateBBox.top + icon.y*template_height - iconHeight / 2; 
+    };
+
+    icon.span.style.left = `${centerX}px`;
+    icon.span.style.top = `${centerY}px`;
+    icon.span.style.width = iconWidth;
+    icon.span.style.height = iconHeight;
+
 }
+
 
 function refreshFrames(img_name){
     var thumbnail = document.querySelector(`.image-item img[src$='media/${hash}/imgs/${img_name}']`).parentElement;
@@ -38,3 +66,6 @@ function refreshFrames(img_name){
     thumbnail.appendChild(imageMetaData.icon[img_name].thumbnail);
     // document.querySelector(`.image-item img[src$='media/${hash}/imgs/${img_name}']`).parentElement.style.border = "2px solid black";
 };
+
+
+window.addEventListener('resize', refreshIcons)
