@@ -11,21 +11,19 @@ function refeshIcons(){
     const separator = document.getElementById("mamparos-dropdown").value;
     const jail = document.getElementById("peceras-dropdown").value;
 
-    // TODO: Reinciar todo cuando se cambie de centro.
-    
     for(i = 0; i < imgs_name.length; i++){
 
-        if (imageMetaData[imgs_name[i]].icon.span != null &&  
-            imageMetaData[imgs_name[i]].icon.module == module &&
-            imageMetaData[imgs_name[i]].icon.center == center ){
-            if (imageMetaData[imgs_name[i]].icon.system == clicked_system) {
-                if (imageMetaData[imgs_name[i]].icon.separator == 'None' || 
-                    imageMetaData[imgs_name[i]].icon.separator == separator) {
-                imageMetaData[imgs_name[i]].icon.template.appendChild(imageMetaData[imgs_name[i]].icon.span)
-                } else if (imageMetaData[imgs_name[i]].icon.jail == jail) {
-                    imageMetaData[imgs_name[i]].icon.template.appendChild(imageMetaData[imgs_name[i]].icon.span)
+        if (imageMetaData.icon[imgs_name[i]].span != null &&  
+            imageMetaData.icon[imgs_name[i]].module == module &&
+            imageMetaData.icon[imgs_name[i]].center == center ){
+            if (imageMetaData.icon[imgs_name[i]].system == clicked_system) {
+                if (imageMetaData.icon[imgs_name[i]].separator == 'None' || 
+                    imageMetaData.icon[imgs_name[i]].separator == separator) {
+                imageMetaData.icon[imgs_name[i]].template.appendChild(imageMetaData.icon[imgs_name[i]].span)
+                } else if (imageMetaData.icon[imgs_name[i]].jail == jail) {
+                    imageMetaData.icon[imgs_name[i]].template.appendChild(imageMetaData.icon[imgs_name[i]].span)
                 } else {
-                    imageMetaData[imgs_name[i]].icon.template.appendChild(imageMetaData[imgs_name[i]].icon.span)
+                    imageMetaData.icon[imgs_name[i]].template.appendChild(imageMetaData.icon[imgs_name[i]].span)
                 }   
             }
         }
@@ -37,6 +35,6 @@ function refreshFrames(img_name){
     while (thumbnail.children.length > 1) {
         thumbnail.removeChild(thumbnail.lastChild)
     }
-    thumbnail.appendChild(imageMetaData[img_name].icon.thumbnail);
+    thumbnail.appendChild(imageMetaData.icon[img_name].thumbnail);
     // document.querySelector(`.image-item img[src$='media/${hash}/imgs/${img_name}']`).parentElement.style.border = "2px solid black";
 };

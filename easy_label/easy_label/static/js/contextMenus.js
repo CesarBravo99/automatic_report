@@ -84,47 +84,47 @@ function getMenuMetadata(event, system, template) {
 
 
 function saveImgMetadata(img_name, menuMetadata, type){
-    imageMetaData[img_name]['json']['module'] = menuMetadata.module;
-    imageMetaData[img_name]['json']['system'] = menuMetadata.json.system;
-    imageMetaData[img_name]['json']['type'] = type;
-    imageMetaData[img_name]['json']['x'] = menuMetadata.json.x;
-    imageMetaData[img_name]['json']['y'] = menuMetadata.json.y;
-    if (menuMetadata.system == 'lobera'){ imageMetaData[img_name]['json']['separator'] = menuMetadata.json.separator}
-    else if (menuMetadata.system == 'pecera') { imageMetaData[img_name]['json']['jail'] = menuMetadata.json.jail };
+    imageMetaData['json'][img_name]['module'] = menuMetadata.module;
+    imageMetaData['json'][img_name]['system'] = menuMetadata.json.system;
+    imageMetaData['json'][img_name]['type'] = type;
+    imageMetaData['json'][img_name]['x'] = menuMetadata.json.x;
+    imageMetaData['json'][img_name]['y'] = menuMetadata.json.y;
+    if (menuMetadata.system == 'lobera'){ imageMetaData['json'][img_name]['separator'] = menuMetadata.json.separator}
+    else if (menuMetadata.system == 'pecera') { imageMetaData['json'][img_name]['jail'] = menuMetadata.json.jail };
 }
 
 function saveIconMetadata(img_name, menuMetadata, icon){
-    imageMetaData[img_name]['icon']['module'] = menuMetadata.module;
-    imageMetaData[img_name]['icon']['center'] = menuMetadata.center;
-    imageMetaData[img_name]['icon']['system'] = menuMetadata.icon.system;
-    imageMetaData[img_name]['icon']['template'] = menuMetadata.template;
-    imageMetaData[img_name]['icon']['separator'] = menuMetadata.icon.separator;
-    imageMetaData[img_name]['icon']['jail'] = menuMetadata.icon.jail;
-    imageMetaData[img_name]['icon']['icon'] = icon;
-    imageMetaData[img_name]['icon']['x'] = menuMetadata.icon.x;
-    imageMetaData[img_name]['icon']['y'] = menuMetadata.icon.y;
-    imageMetaData[img_name]['icon']['span'] = createIcon(img_name);
-    imageMetaData[img_name]['icon']['thumbnail'] = createThumbnail(img_name);
+    imageMetaData['icon'][img_name]['module'] = menuMetadata.module;
+    imageMetaData['icon'][img_name]['center'] = menuMetadata.center;
+    imageMetaData['icon'][img_name]['system'] = menuMetadata.icon.system;
+    imageMetaData['icon'][img_name]['template'] = menuMetadata.template;
+    imageMetaData['icon'][img_name]['separator'] = menuMetadata.icon.separator;
+    imageMetaData['icon'][img_name]['jail'] = menuMetadata.icon.jail;
+    imageMetaData['icon'][img_name]['icon'] = icon;
+    imageMetaData['icon'][img_name]['x'] = menuMetadata.icon.x;
+    imageMetaData['icon'][img_name]['y'] = menuMetadata.icon.y;
+    imageMetaData['icon'][img_name]['span'] = createIcon(img_name);
+    imageMetaData['icon'][img_name]['thumbnail'] = createThumbnail(img_name);
 };    
 
 function createIcon(img_name) {
     const icon = document.createElement("span");
     icon.className = "icon-class";
-    icon.textContent = imageMetaData[img_name]['icon']['icon'];
+    icon.textContent = imageMetaData['icon'][img_name]['icon'];
     icon.style.position = "absolute";
 
-    const targetImageRect = imageMetaData[img_name]['icon']['template'].getBoundingClientRect();
+    const targetImageRect = imageMetaData['icon'][img_name]['template'].getBoundingClientRect();
     const iconWidth = 33;
     const iconHeight = 36;
     var centerX = 0
     var centerY = 0
     
-    if (imageMetaData[img_name]['json']['type'] == 'correct'){
-        centerX = targetImageRect.left + imageMetaData[img_name]['icon']['x'] - iconWidth * 4/ 11;
-        centerY = targetImageRect.top + imageMetaData[img_name]['icon']['y'] - iconHeight * 2 / 3; 
+    if (imageMetaData['json'][img_name]['type'] == 'correct'){
+        centerX = targetImageRect.left + imageMetaData['icon'][img_name]['x'] - iconWidth * 4/ 11;
+        centerY = targetImageRect.top + imageMetaData['icon'][img_name]['y'] - iconHeight * 2 / 3; 
     } else {
-        centerX = targetImageRect.left + imageMetaData[img_name]['icon']['x'] - iconWidth / 2;
-        centerY = targetImageRect.top + imageMetaData[img_name]['icon']['y'] - iconHeight / 2; 
+        centerX = targetImageRect.left + imageMetaData['icon'][img_name]['x'] - iconWidth / 2;
+        centerY = targetImageRect.top + imageMetaData['icon'][img_name]['y'] - iconHeight / 2; 
     };
 
     icon.style.left = `${centerX}px`;
@@ -140,7 +140,7 @@ function createIcon(img_name) {
 function createThumbnail(img_name) {
     const icon = document.createElement("span");
     icon.className = "thumbnail-icon no-select";
-    icon.textContent = imageMetaData[img_name]['icon']['icon'];
+    icon.textContent = imageMetaData['icon'][img_name]['icon'];
     icon.style.position = "absolute";
     // icon.style.fontSize = "20px";
     icon.style.left = "50%";
