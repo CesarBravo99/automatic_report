@@ -177,7 +177,7 @@ dark-ignore/
 **/results/*
 !**/results/.keep
 mediafiles/
-
+media/
 
 # Dark Tensor - Miscellanous
 .vscode/
