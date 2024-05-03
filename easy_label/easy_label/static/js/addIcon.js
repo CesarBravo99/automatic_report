@@ -59,7 +59,7 @@ function refreshIcon(icon){
 
 
 function refreshFrames(img_name){
-    var thumbnail = document.querySelector(`.image-item img[src$='media/${hash}/imgs/${img_name}']`).parentElement;
+    var thumbnail = document.querySelector(`.image-item img[src$='media/${hash}/images/${img_name}']`).parentElement;
     while (thumbnail.children.length > 1) {
         thumbnail.removeChild(thumbnail.lastChild)
     }

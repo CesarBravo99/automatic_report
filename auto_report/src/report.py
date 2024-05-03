@@ -79,6 +79,9 @@ class Report(Latex):
         bitacora = Bitacora(self.settings, self.images, self.style)
 
         systems = set([img['system'] for img in self.images.values()])
+        flagLobera = False
+        flagPecera = False
+        flagTensorLobera = False
         for system in systems:
             if system == 'lobero':
                 lobera = Lobera(self.settings, self.images, self.params, self.center, self.style, self.imported_data_dir)

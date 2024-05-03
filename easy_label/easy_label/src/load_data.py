@@ -9,7 +9,7 @@ class DataLoader():
     
     def __init__(self, hash):
         self.hash = hash
-        self.media_dir = os.path.join(settings.MEDIA_ROOT, str(hash), 'imgs')
+        self.media_dir = os.path.join(settings.MEDIA_ROOT, str(hash), 'images')
         self.centers_path = os.path.join(settings.BASE_DIR, 'easy_label', 'data', 'centers.json')
         self.weights_path = os.path.join(settings.BASE_DIR, 'easy_label', 'data', 'weights.json')
         self.imgs_name = ''
@@ -22,7 +22,6 @@ class DataLoader():
             weights = json.load(f)
         self.weights = weights
 
-        # [' '.join(list(map(str.capitalize, center.split(' ')))) for center in self.centers.keys()]
         self.centers_name = sorted(list(self.centers.keys()))
 
     def sanity_check(self):

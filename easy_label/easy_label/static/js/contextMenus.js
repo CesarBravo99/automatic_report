@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             template.addEventListener("click", hideMenu)
         });
         document.querySelectorAll("[id=context-link-" + system.id + ']').forEach((option) => {
-            option.addEventListener('click', function(event) {
+            option.addEventListener('click', function() {
             const type = this.querySelector("span[role='icon']").ariaLabel;
             const icon = this.querySelector("span[role='icon']").textContent;
             const img_name = document.getElementById('selected-image').src.split('/').pop();
@@ -62,7 +62,7 @@ function getMenuMetadata(event, system, template) {
 
     if (system.id == 'lobera') {sistema = 'lobero'}
     else if (system.id == 'pecera') {sistema = 'pecero'}
-    else {sistema = 'tensores'};
+    else {sistema = 'tensor'};
     return {
         'module': (document.getElementById("modules-dropdown").value - 1).toString(),
         'center': document.getElementById("centers-dropdown").value,

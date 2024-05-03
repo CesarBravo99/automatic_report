@@ -1,11 +1,5 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-uc.cl/
-export/
-import/
-upload/
-output/
-test/
 *.py[cod]
 *$py.class
 
@@ -133,7 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-dark-env/
+
 
 # Spyder project settings
 .spyderproject
@@ -166,12 +160,16 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Dark Tensor
-dark-env/
-dark-tensor/
-dark-ignore/
+# Development
+uc.cl/
+export/
+import/
+upload/
+output/
+test/
+ignore/
 
-# Dark Tensor - Data
+# Data
 **/temp/*
 !**/temp/.keep
 **/results/*
@@ -179,5 +177,5 @@ dark-ignore/
 mediafiles/
 media/
 
-# Dark Tensor - Miscellanous
+# Miscellanous
 .vscode/

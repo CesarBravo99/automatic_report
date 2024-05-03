@@ -50,11 +50,11 @@ def save_media(images):
     hash_temp = hashlib.shake_256(str(time.time() + random.random()).encode('UTF-8')).hexdigest(25)
     media_dir = os.path.join(settings.MEDIA_ROOT, hash_temp)
     os.makedirs(media_dir, exist_ok=True)
-    os.makedirs(os.path.join(media_dir, 'imgs'), exist_ok=True)
+    os.makedirs(os.path.join(media_dir, 'images'), exist_ok=True)
 
     for i, img in enumerate(images):
         img_name, img_ext = os.path.splitext(img.name)
-        img_path = os.path.join(media_dir, 'imgs', f'{i}{img_ext}')
+        img_path = os.path.join(media_dir, 'images', f'{i}{img_ext}')
         with open(img_path, 'wb+') as f:
             for chunk in img.chunks():
                 f.write(chunk)
