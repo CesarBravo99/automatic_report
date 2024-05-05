@@ -49,17 +49,19 @@ function hideMenu(){
 }
 
 function getMenuMetadata(event, system, template) {
-    const templateBBox = template.getBoundingClientRect();
-    const template_width = templateBBox.right - templateBBox.left;
-    const template_height = templateBBox.bottom - templateBBox.top;
-    const img_width = template.children[0].naturalWidth
-    const img_height = template.children[0].naturalHeight
+    const templateBBox = template.children[0].getBoundingClientRect();
+    const templateWidth = templateBBox.width;
+    const templateHeight = templateBBox.height;
+    const imgWidth = template.children[0].naturalWidth
+    const imgHeight = template.children[0].naturalHeight
 
-    const px = (event.clientX - templateBBox.left) / template_width
-    const py = (event.clientY - templateBBox.top) / template_height
-    const x = weights[system.id][template.role]['x'][0] + px*img_width*weights[system.id][template.role]['x'][1]
-    const y = weights[system.id][template.role]['y'][0] + py*img_height*weights[system.id][template.role]['y'][1]
+    const px = (event.clientX - templateBBox.left) / templateWidth
+    const py = (event.clientY - templateBBox.top) / templateHeight
+    const x = weights[system.id][template.role]['x'][0] + px*imgWidth*weights[system.id][template.role]['x'][1]
+    const y = weights[system.id][template.role]['y'][0] + py*imgHeight*weights[system.id][template.role]['y'][1]
 
+    // alert(imgWidth)
+    // alert(x)
     if (system.id == 'lobera') {sistema = 'lobero'}
     else if (system.id == 'pecera') {sistema = 'pecero'}
     else {sistema = 'tensor'};
@@ -78,8 +80,8 @@ function getMenuMetadata(event, system, template) {
             'system': system.id,
             'separator': (template.role == 'separator') ? document.getElementById("mamparos-dropdown").value : 'None',
             'jail': document.getElementById("peceras-dropdown").value,
-            'x': px,
-            'y': py,
+            'x': event.clientX - templateBBox.left,
+            'y': event.clientY - templateBBox.top,
         }
     };
 };
@@ -116,27 +118,24 @@ function createIcon(img_name) {
     icon.textContent = imageMetaData['icon'][img_name]['icon'];
     icon.style.position = "absolute";
 
-    const templateBBox = imageMetaData['icon'][img_name]['template'].getBoundingClientRect();
-    const template_width = templateBBox.right - templateBBox.left;
-    const template_height = templateBBox.bottom - templateBBox.top;
-
-    const iconWidth = 33;
-    const iconHeight = 36;
-    var centerX = 0
-    var centerY = 0
+    // const templateBBox = imageMetaData['icon'][img_name]['template'].children[0].getBoundingClientRect();
+    // const iconWidth = window.screen.width / 50;
+    // const iconHeight = window.screen.height / 50;
+    // var centerX = 0
+    // var centerY = 0
     
-    if (imageMetaData['json'][img_name]['type'] == 'correct'){
-        centerX = templateBBox.left + imageMetaData['icon'][img_name]['x']*template_width - iconWidth * 4/ 11;
-        centerY = templateBBox.top + imageMetaData['icon'][img_name]['y']*template_height - iconHeight * 2 / 3; 
-    } else {
-        centerX = templateBBox.left + imageMetaData['icon'][img_name]['x']*template_width - iconWidth / 2;
-        centerY = templateBBox.top + imageMetaData['icon'][img_name]['y']*template_height - iconHeight / 2; 
-    };
+    // if (imageMetaData['json'][img_name]['type'] == 'correct'){
+    //     centerX = templateBBox.left + window.scrollX + imageMetaData['icon'][img_name]['x']//*templateWidth //+ iconWidth * 3/2
+    //     centerY = templateBBox.top + window.scrollY + imageMetaData['icon'][img_name]['y']//*templateHeight //- iconHeight * 2 / 3; 
+    // } else {
+    //     centerX = templateBBox.left + window.scrollX + imageMetaData['icon'][img_name]['x']//*templateWidth //+ iconWidth ;
+    //     centerY = templateBBox.top + window.scrollY + imageMetaData['icon'][img_name]['y']//*templateHeight //- iconHeight / 2; 
+    // };
 
-    icon.style.left = `${centerX}px`;
-    icon.style.top = `${centerY}px`;
-    icon.style.width = iconWidth;
-    icon.style.height = iconHeight;
+    // icon.style.left = `${centerX}px`;
+    // icon.style.top = `${centerY}px`;
+    // icon.style.width = iconWidth;
+    // icon.style.height = iconHeight;
 
     return icon;
 };

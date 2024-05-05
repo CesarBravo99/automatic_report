@@ -34,21 +34,16 @@ function refreshIcons(){
 
 
 function refreshIcon(icon){
-    const templateBBox = icon.template.getBoundingClientRect();
-    const template_width = templateBBox.right - templateBBox.left;
-    const template_height = templateBBox.bottom - templateBBox.top;
-    const iconWidth = 33;
-    const iconHeight = 36;
+    const templateBBox = icon.template.children[0].getBoundingClientRect();
+    const iconWidth = window.innerWidth / 50;
+    const iconHeight = window.innerHeight / 50;
     var centerX = 0
     var centerY = 0
 
-    if (icon['type'] == 'correct'){
-        centerX = templateBBox.left + icon.x*template_width - iconWidth * 4/ 11;
-        centerY = templateBBox.top + icon.y*template_height - iconHeight * 2 / 3; 
-    } else {
-        centerX = templateBBox.left + icon.x*template_width - iconWidth / 2;
-        centerY = templateBBox.top + icon.y*template_height - iconHeight / 2; 
-    };
+    if (icon['type'] == 'correct'){centerX = templateBBox.left + window.scrollX + icon['x'] - iconWidth * 4/ 11} 
+    else {centerX = templateBBox.left + window.scrollX + icon['x'] - iconWidth / 2};
+    centerY = templateBBox.top + window.scrollY + icon['y'] - iconHeight ;
+
 
     icon.span.style.left = `${centerX}px`;
     icon.span.style.top = `${centerY}px`;
