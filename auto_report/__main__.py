@@ -22,7 +22,8 @@ def generate(root:str, imported_data_dir:str, exported_data_dir:str, pdf_config:
         hash (str): Hash associated to form request
     '''
 
-    base_data_dir = os.path.join(root, os.path.normpath('src/resources/data/'))
+    # base_data_dir = os.path.join(root, os.path.normpath('src/resources/data/'))
+    base_data_dir = os.path.normpath('src/resources/data/')
     settings, load_settings = load_json(imported_data_dir, 'settings.json')
     images, load_images = load_json(imported_data_dir, 'images.json')
     centers, load_centers = load_json(base_data_dir, 'centers.json')
