@@ -37,9 +37,15 @@ def get_IDs(image_metadata):
         system_count[system] += 1
     return image_metadata
 
+def clean_json(image_metadata):
+    for image, metadata in image_metadata.items():
+        if metadata['type'] == None:
+            del image_metadata[image]
+    return image_metadata
 
 def generate_json(media_dir, image_metadata):
-    image_metadata =  get_IDs(image_metadata)
+    # image_metadata = clean_json(image_metadata)
+    image_metadata = get_IDs(image_metadata)
     json_file_path = os.path.join(media_dir, 'images.json')
     with open(json_file_path, 'w', encoding='utf-8') as json_file:
         json.dump(image_metadata, json_file, indent=4, ensure_ascii=False)
