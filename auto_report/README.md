@@ -30,16 +30,10 @@ input_data_folder
 
 For being more precise. The image folder and the images.json are provided from EasyLabel software as an ouput.
 
-If you take the GitHub repo as the root, to generate a report you only need to execute the following terminal command:
+This folder of the Github repo is designed to be contained in a docker container. In thi sense, to opeate the software you must instroduce the following command in your shell:
 
 ```bash	
-auto_report/make_report.sh $DATA_INPUT_DIR $PDF_EXPORT_DIR $$PDF_CONFIG 
-```
-
-For example
-
-```bash	
-auto_report/make_report.sh auto_report/test/input auto_report/test/output a
+BASE_PARTH/auto_report.sh $CONTAINER_NAME $DATA_INPUT_DIR $DATA_OUTPUT_DIR $PDF_CONFIG 
 ```
 
 The $PDF_CONFIG argument represent the types of Report PDF's, this arg could be
@@ -50,13 +44,3 @@ The $PDF_CONFIG argument represent the types of Report PDF's, this arg could be
 - `l`: lobera: Get the lobera section 
 - `p`: pecera: Get the pecera section 
 - `t`: tensores: Get the tensores section
-
-
-### Installing
-
-For install the Auto Report software it is necessary to run the following bash script
-
-```bash	
-chmod +x auto_report/install.sh
-auto_report/install.sh
-```
