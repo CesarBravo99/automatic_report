@@ -33,7 +33,7 @@ For being more precise. The image folder and the images.json are provided from E
 This folder of the Github repo is designed to be contained in a docker container. In thi sense, to opeate the software you must instroduce the following command in your shell:
 
 ```bash	
-BASE_PARTH/auto_report.sh $CONTAINER_NAME $DATA_INPUT_DIR $DATA_OUTPUT_DIR $PDF_CONFIG 
+BASE_PARTH/auto_report.sh $CONTAINER_NAME $DATA_INPUT_DIR/. $DATA_OUTPUT_DIR $PDF_CONFIG 
 ```
 
 The $PDF_CONFIG argument represent the types of Report PDF's, this arg could be
