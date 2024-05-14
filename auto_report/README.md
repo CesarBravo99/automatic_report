@@ -44,3 +44,5 @@ The $PDF_CONFIG argument represent the types of Report PDF's, this arg could be
 - `l`: lobera: Get the lobera section 
 - `p`: pecera: Get the pecera section 
 - `t`: tensores: Get the tensores section
+
+<!-- ./auto_report.sh auto_report "/mnt/c/Users/jacmo/OneDrive - uc.cl/Escritorio/Tri-Chile/automatic_report/auto_report/test/." "/mnt/c/Users/jacmo/OneDrive - uc.cl/Escritorio/Tri-Chile/automatic_report/auto_report/output/" "a" -->
