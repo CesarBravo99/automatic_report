@@ -31,7 +31,8 @@ def download(request):
 def get_IDs(image_metadata):
     system_count = {'L': 0, 'P': 0, 'T': 0}
     for image in image_metadata.keys():
-        image_metadata[image]['obs'] = 'Sin observación del piloto'
+        if image_metadata[image]['obs'] == '':
+            image_metadata[image]['obs'] = 'Sin observación del piloto'
         system = image_metadata[image]['system'][0].upper()
         image_metadata[image]['id'] = system + str(system_count[system])
         system_count[system] += 1
