@@ -14,5 +14,3 @@ docker exec $CONTAINER sh -c "rm -rf docker/export/*"
 
 echo "PDF Generated!"
 echo "You can find the PDF at $DATA_OUTPUT_DIR"
-
-# ./auto_report.sh auto_report "/mnt/c/Users/jacmo/OneDrive - uc.cl/Escritorio/Tri-Chile/automatic_report/auto_report/test/." "/mnt/c/Users/jacmo/OneDrive - uc.cl/Escritorio/Tri-Chile/automatic_report/auto_report/output/" "a"
