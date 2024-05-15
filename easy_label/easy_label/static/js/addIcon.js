@@ -42,9 +42,7 @@ function refreshIcon(icon){
 
     if (icon['type'] == 'correct'){centerX = templateBBox.left + window.scrollX + icon['x'] - iconWidth * 4/ 11} 
     else {centerX = templateBBox.left + window.scrollX + icon['x'] - iconWidth / 2};
-    centerY = templateBBox.top + window.scrollY + icon['y'] - iconHeight ;
-
-
+    centerY = templateBBox.top - window.scrollY + icon['y'] - iconHeight ;
     icon.span.style.left = `${centerX}px`;
     icon.span.style.top = `${centerY}px`;
     icon.span.style.width = iconWidth;
