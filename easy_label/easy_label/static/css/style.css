@@ -476,7 +476,6 @@ footer span {
 
 .selected-image-container {
   width: 100%;
-  max-height: 500px;
   margin-bottom: var(--spacing-medium);
   overflow-y: auto; 
 }
