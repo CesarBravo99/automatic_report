@@ -54,7 +54,8 @@ def save_media(images):
 
     for i, img in enumerate(images):
         img_name, img_ext = os.path.splitext(img.name)
-        img_path = os.path.join(media_dir, 'images', f'{i}{img_ext}')
+        img_name = ''.join(img_name.split())
+        img_path = os.path.join(media_dir, 'images', f'{img_name}{img_ext}')
         with open(img_path, 'wb+') as f:
             for chunk in img.chunks():
                 f.write(chunk)

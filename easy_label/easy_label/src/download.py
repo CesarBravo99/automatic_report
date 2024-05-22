@@ -6,6 +6,7 @@ import zipfile
 import json
 
 import os
+import shutil
 import io
 
 
@@ -14,18 +15,41 @@ def download(request):
 
         request_metadata = json.loads(request.body)['imageMetaData']
         image_metadata = request_metadata['json']
-        print(image_metadata)
         media_dir = os.path.join(settings.MEDIA_ROOT, request_metadata['hash'])
+        
+        process_directories(media_dir)
+        image_metadata = generate_json(media_dir, image_metadata)
+        generate_imgs(media_dir, image_metadata)
 
-        generate_json(media_dir, image_metadata)
-
-        zip_buffer = generate_zip(media_dir)
+        zip_buffer = generate_zip(os.path.join(media_dir, 'temp'))
         response = HttpResponse(zip_buffer, content_type='application/zip')
         response['Content-Disposition'] = 'attachment; filename="easylabel.zip"'
         return response
 
     else:
         return JsonResponse({'error': 'Only POST requests are allowed'})
+
+def process_directories(media_dir):
+    if os.path.isdir(os.path.join(media_dir, 'temp')):
+        shutil.rmtree(os.path.join(media_dir, 'temp'))
+    os.mkdir(os.path.join(media_dir, 'temp'))
+    os.mkdir(os.path.join(media_dir, 'temp', 'images'))
+
+def generate_json(media_dir, image_metadata):
+    image_metadata = clean_json(image_metadata)
+    image_metadata = get_IDs(image_metadata)
+    json_file_path = os.path.join(os.path.join(media_dir, 'temp'), 'images.json')
+    with open(json_file_path, 'w', encoding='utf-8') as json_file:
+        json.dump(image_metadata, json_file, indent=4, ensure_ascii=False)
+    return image_metadata
+
+
+def clean_json(image_metadata):
+    image_metadata_clean = {}
+    for image, metadata in image_metadata.items():
+        if metadata['type'] != None:
+            image_metadata_clean[image] = metadata
+    return image_metadata_clean
 
 
 def get_IDs(image_metadata):
@@ -38,19 +62,11 @@ def get_IDs(image_metadata):
         system_count[system] += 1
     return image_metadata
 
-def clean_json(image_metadata):
-    for image, metadata in image_metadata.items():
-        if metadata['type'] == None:
-            del image_metadata[image]
-    return image_metadata
 
-def generate_json(media_dir, image_metadata):
-    # image_metadata = clean_json(image_metadata)
-    image_metadata = get_IDs(image_metadata)
-    json_file_path = os.path.join(media_dir, 'images.json')
-    with open(json_file_path, 'w', encoding='utf-8') as json_file:
-        json.dump(image_metadata, json_file, indent=4, ensure_ascii=False)
-
+def generate_imgs(media_dir, image_metadata):
+    for img in image_metadata.keys():
+        shutil.copyfile(os.path.join(media_dir, 'images', img), os.path.join(media_dir, 'temp', 'images', img))
+    
 
 def generate_zip(media_dir):
     zip_buffer = io.BytesIO()

@@ -1,10 +1,10 @@
 {% load static %}
 
-<script src="{% static 'js/selectImg.js' %}"></script>
+<script src="{% static 'js/selectImgs.js' %}"></script>
 
 <div class="image-list">
     <h4 class="image-list-title">Selector de Imágenes</h4>
-    <div class="selected-image-container">
+    <div id='images-container' class="selected-image-container">
         {% for img_name in init_easylabel.imgs_name %}
             {% if forloop.counter0|divisibleby:3 %}
                 <div class="image-row"> <!-- Start of a new row every 2 images -->

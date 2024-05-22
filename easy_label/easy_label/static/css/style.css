@@ -318,7 +318,7 @@ footer span {
   margin: 0px;
   padding: 0px;
   max-height: 61vh !important;
-  overflow: auto;
+  overflow: visible;
   /* object-fit: cover; */
 }
 
