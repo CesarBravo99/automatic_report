@@ -765,12 +765,69 @@
         },
         "cardinals": {
             "0": ["Canal", "Distal", "Costa", "Proximal"],
-            "1": ["Canal", "Proximal", "Canal", "Distal"]
+            "1": ["Canal", "Proximal", "Costa", "Distal"]
         },
         "pontoon": {
             "0": "right",
             "1": "left"
         },
         "filename": "PUNTAMANO"
+    },
+    "PUNTA PORVENIR": {
+        "modules": 2,
+        "jails": {
+            "0": 10,
+            "1": 10
+        },
+        "scopes": {
+            "0": 101,
+            "1": 201
+        },
+        "x_flip": {
+            "0": false,
+            "1": false
+        },
+        "y_flip": {
+            "0": true,
+            "1": true
+        },
+        "double": {
+            "0": true,
+            "1": true
+        },
+        "cardinals": {
+            "0": ["Canal", "Proximal", "Costa", "Distal"],
+            "1": ["Canal", "Distal", "Costa", "Proximal"]
+        },
+        "pontoon": {
+            "0": "bottom left",
+            "1": "bottom right"
+        },
+        "filename": "PUNTAPORVENIR"
+    },
+    "PUNTA ALBERTO": {
+        "modules": 1,
+        "jails": {
+            "0": 16
+        },
+        "scopes": {
+            "0": 101
+        },
+        "x_flip": {
+            "0": true
+        },
+        "y_flip": {
+            "0": true
+        },
+        "double": {
+            "0": true
+        },
+        "cardinals": {
+            "0": ["Canal", "Distal", "Costa", "Proximal"]
+        },
+        "pontoon": {
+            "0": "right"
+        },
+        "filename": "PUNTAALBERTO"
     }
 }

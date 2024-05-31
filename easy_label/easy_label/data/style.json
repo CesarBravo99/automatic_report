@@ -1,0 +1,106 @@
+{
+    "template": {
+        "colors": {
+            "lightgreen": "80, 227, 194",
+            "whitegreen": "153, 242, 184",
+            "checkgreen": "0, 130, 0",
+            "darkred": "150, 0, 24",
+            "oceangreen": "35, 121, 140",
+            "golden": "242, 183, 5",
+            "mortality": "100, 11, 11",
+            "rope": "231, 189, 141",
+            "bananayellow": "242, 213, 126",
+            "indiagreen": "19, 136, 8",
+            "lightblue": "70, 140, 210",
+            "boya": "245, 166, 35",
+            "red": "210, 2, 27"
+        },
+        "headrule": "golden",
+        "footrule": "golden",
+        "logo_position": "(0, -20)",
+        "logo_width": "2.5cm"
+    },
+    "cover_page": {
+        "vspace_logo_client": "0.5cm",
+        "hspace_logo_client": "1.5cm",
+        "width_logo_client": "6cm",
+        "vspace_logo_cover": "3cm",
+        "hspace_logo_cover": "2cm",
+        "width_logo_cover": "9cm"
+    },
+    "worklog": {
+        "font": "\\sffamily",
+        "info_size": "\\normalsize",
+        "obs_size": "\\normalsize",
+        "colorbox": "bananayellow!90!white"
+    },
+    "seawolf": {
+        "net": "lightgreen",
+        "pontoon": "red",
+        "font": {
+            "numbers": "",
+            "background": "",
+            "lateral": "",
+            "head": "",
+            "separator": ""
+        },
+        "images": {
+            "pos_img": "(479, 322)",
+            "pos_obs": "(470, 605)",
+            "config": "width=25cm, height=14cm"
+        }
+    },
+    "fishbowl": {
+        "points": "lightblue",
+        "font": {
+            "title": "",
+            "background": "",
+            "frontal": "",
+            "distal": "",
+            "canal": "",
+            "costa": ""
+        },
+        "images": {
+            "pos_img": "(476, 292)",
+            "pos_obs": "(467, 575)",
+            "config": "width=25cm, height=14cm"
+        }
+    },
+    "tensors": {
+        "buoy": "boya",
+        "tensor": "rope",
+        "dots": "red",
+        "net": "oceangreen",
+        "font": {
+            "numbers": "",
+            "labels": ""
+        },
+        "images": {
+            "pos_img": "(296, 50)",
+            "pos_obs": "(287, 335)",
+            "config": "width=25cm, height=14cm"
+        }
+    },
+    "ocg":{
+        "color": {
+            "correct": "checkgreen",
+            "tear": "darkred",
+            "anomaly": "oceangreen",
+            "adherence": "golden",
+            "mortality": "mortality",
+            "lack_tension": "oceangreen",
+            "no_tension": "darkred",
+            "separator_bar": "whitegreen",
+            "separator_dot": "indiagreen"
+        },
+        "label": {
+            "correct": "boldcheckmark",
+            "tear": "boldcross",
+            "anomaly": "boldtriangle",
+            "adherence": "boldcruz",
+            "mortality": "bolddiamond",
+            "lack_tension": "boldcrosscheck",
+            "no_tension": "boldcross"
+        }
+    }
+}
