@@ -829,5 +829,30 @@
             "0": "right"
         },
         "filename": "PUNTAALBERTO"
+    },
+    "CANALAD 1": {
+        "modules": 1,
+        "jails": {
+            "0": 10
+        },
+        "scopes": {
+            "0": 101
+        },
+        "x_flip": {
+            "0": true
+        },
+        "y_flip": {
+            "0": false
+        },
+        "double": {
+            "0": true
+        },
+        "cardinals": {
+            "0": ["Canal", "Proximal", "Costa", "Distal"]
+        },
+        "pontoon": {
+            "0": "bottom left"
+        },
+        "filename": "CANALAD1"
     }
 }
