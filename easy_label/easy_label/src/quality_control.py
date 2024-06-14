@@ -21,9 +21,9 @@ class QualityCheck:
     def __init__(self, path:str, add_images_path:bool=False) -> None:
         self.path = os.path.normpath(os.path.join(path, 'images') if add_images_path else path)
         self.images_path = os.path.normpath(os.path.join(path, 'images'))
-        self.path_hashes = os.path.normpath('qualitycheck/data/hashes')
+        # self.path_hashes = os.path.normpath('qualitycheck/data/hashes')
         self.imgs = self.load_images()
-        self.base_hashes = self.load_hashes()
+        # self.base_hashes = self.load_hashes()
 
 
     def load_images(self) -> list:
@@ -48,17 +48,21 @@ class QualityCheck:
     
     def quality_control(self) -> dict:
         msg_blurred, blurred = check_blurred_img(self.imgs)
-        msg_repeated, repeated, hashes = check_repeated_img(self.imgs, self.base_hashes)
+
+        msg_repeated, repeated = '', True
+        # msg_repeated, repeated, hashes = check_repeated_img(self.imgs, self.base_hashes)
+
         msg_ctx, ctx = check_context(self.imgs)
         msg_labels, labels = check_img_labels(self.imgs)
         
         response = {}
+
         if msg_blurred and msg_repeated:
             msg_blurred += '<hr>'
         response['msg'] = msg_blurred + msg_repeated + msg_ctx + msg_labels
         response['status'] = bool(np.all([blurred, repeated, labels, ctx]))
-        if response['status']:
-            self.save(hashes)
+        # if response['status']:
+        #     self.save(hashes)
         return response
     
     def save(self, hashes:list) -> None :

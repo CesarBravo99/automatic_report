@@ -1,5 +1,13 @@
 {% load static %}
 
+<div class="download-section">
+    <button id="delete-button" onclick="deleteAnnotation()">Borrar Anotación 🗑️</button>
+</div>
+
+<hr class="sidebar-divider"/>
+
+
+
 <div class="selected-image-container">
     <img id="selected-image" src="{% static 'imgs/favicon_cover.png'%}" alt="Selected Image" />
 </div>
@@ -15,5 +23,5 @@
 <hr class="sidebar-divider"/>
 
 <div class="download-section">
-    <button id="download-button" onclick="downloadJson()">Descargar Anotaciones</button>
+    <button id="download-button" onclick="downloadJson()">Descargar Anotaciones 📚</button>
 </div>

@@ -641,7 +641,7 @@ footer span {
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 1rem; /* Font size */
-  text-transform: uppercase; /* Uppercase text */
+  /* text-transform: uppercase; Uppercase text */
   letter-spacing: 1px; /* Spacing between letters */
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
@@ -654,6 +654,31 @@ footer span {
 }
 
 #download-button:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus state for accessibility */
+}
+
+#delete-button {
+  padding: 10px 15px; /* Padding for button size */
+  background-color: var(--primary-color); /* Use the primary color */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  /* text-transform: uppercase; Uppercase text */
+  letter-spacing: 1px; /* Spacing between letters */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+#delete-button:hover {
+  background-color: green;
+  color: white; /* Keep text color consistent on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Enhanced shadow on hover */
+}
+
+#delete-button:focus {
   outline: none; /* Remove focus outline */
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus state for accessibility */
 }

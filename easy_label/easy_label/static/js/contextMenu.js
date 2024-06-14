@@ -154,3 +154,33 @@ function createThumbnail(img_name) {
     return icon
 }
 
+
+function deleteAnnotation(){
+    const selectedImgName = document.getElementById('selected-image').getAttribute('src').split('/').pop();
+
+    imageMetaData['json'][selectedImgName] = {
+        'module': null,
+        'system': null,
+        'type': null,
+        'x': 0,
+        'y': 0,
+        'obs': '',
+    };
+    imageMetaData['icon'][selectedImgName] = {
+        'module': null,
+        'center': null,
+        'system': null,
+        'template': null,
+        'separator': null,
+        'jail': null,
+        'icon': null,
+        'x': 0,
+        'y': 0,
+        'span': null,
+    }
+
+    refreshIcons();
+    refreshFrames(selectedImgName);
+
+}
+

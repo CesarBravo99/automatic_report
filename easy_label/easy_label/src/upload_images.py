@@ -7,6 +7,9 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.conf import settings
 
+from easy_label.src.quality_control import QualityCheck
+
+
 ALLOWED_EXTENSIONS = [
     '.png', '.jpg', '.jpeg', '.svg', '.webp'
 ]
@@ -62,6 +65,14 @@ def save_media(images):
     return media_dir, hash_temp
 
 
+def quality_check(path):
+    qc = QualityCheck(path=path, add_images_path=False)
+    response= qc.quality_control()
+    print('Quality check response:', response)
+    status = response['status']
+    message = response['msg']
+    return status, message
+
 def upload_images(request):
     ''' Take the upload post request and proccess it
     
@@ -75,8 +86,15 @@ def upload_images(request):
         if not images:
             return redirect('home')
         media_dir, hash_temp = save_media(images)
-        # status, message = run_quality_check(media_dir)
-        request.session['folder_to_delete'] = media_dir
-        return redirect(f'/{hash_temp}')
+        status, message = quality_check(media_dir)
+        if not status:
+            messages.error(
+                request,
+                message=message
+            )
+            return redirect('home')
+        else:
+            request.session['folder_to_delete'] = media_dir
+            return redirect(f'/{hash_temp}')
         
     return redirect('tutorial')
