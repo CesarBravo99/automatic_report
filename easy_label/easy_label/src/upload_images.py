@@ -65,13 +65,11 @@ def save_media(images):
     return media_dir, hash_temp
 
 
-def quality_check(path):
-    qc = QualityCheck(path=path, add_images_path=False)
+def quality_check(media_dir):
+    qc = QualityCheck(media_dir=media_dir)
     response= qc.quality_control()
     print('Quality check response:', response)
-    status = response['status']
-    message = response['msg']
-    return status, message
+    return response['status'], response['msg']
 
 def upload_images(request):
     ''' Take the upload post request and proccess it
